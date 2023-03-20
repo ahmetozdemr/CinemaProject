@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading;
 using CinemaProject.Data;
@@ -14,7 +15,7 @@ namespace CinemaProject
         {
             //   ShowSimplePercentage();
 
-            TheVisionFilms();
+            filmsInVision();
 
 
 
@@ -47,7 +48,7 @@ namespace CinemaProject
             Console.ResetColor();
         }
 
-        static void TheVisionFilms()
+        static void filmsInVision()
         {
             StarShow(48);
 
@@ -185,6 +186,10 @@ namespace CinemaProject
         {
 
             Seats seats = new Seats();
+            CinemaRooms cinemaRooms = new CinemaRooms();
+
+            seats.seatList1[1].checkFill = false;
+            seats.seatList1[2].checkFill = false;
             int t = 0;
             for (int i = 0; i < 3; i++)
             {
@@ -192,19 +197,36 @@ namespace CinemaProject
                 for (int j = 0; j < 4; j++)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write("*Koltuk {0}\t", seats.seatList[t].Id);
+                    //Console.Write("*Koltuk {0}\t", seats.seatList[t].Id);
+                    if (seats.seatList1[t].checkFill == true)
+                    {
+                        Console.Write("*Koltuk {0}\t", seats.seatList1[t].Id);
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("*Satıldı {0}\t", seats.seatList1[t].Id);
+                    }
+                    
                     t++;
                 }
 
                 Console.WriteLine();
             }
+            
             StarShow(58);
             Console.ResetColor();
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Bir koltuk seçiniz :");
-
             byte chooseSeatNumber = byte.Parse(Console.ReadLine());
+           
+            //cinemaRooms.film1[chooseSeatNumber] = false;
+            seats.seatList1[chooseSeatNumber].checkFill = false;
+            seats.seatList1[0].checkFill = false;
+            seats.seatList1[1].checkFill = false;
+            seats.seatList1[2].checkFill = false;
+            seats.seatList1[3].checkFill = false;
             Console.ResetColor();
             Console.Clear();
 
@@ -216,8 +238,34 @@ namespace CinemaProject
         {
             Films films = new Films();
             Seats seats = new Seats();
-            Ticket ticket = new Ticket();   
+            Ticket ticket = new Ticket();
             Console.ResetColor();
+
+
+            int t = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                StarShow(58);
+                for (int j = 0; j < 4; j++)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    //Console.Write("*Koltuk {0}\t", seats.seatList[t].Id);
+                    if (seats.seatList1[t].checkFill == true)
+                    {
+                        Console.Write("*Koltuk {0}\t", seats.seatList1[t].Id);
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("*Satıldı {0}\t", seats.seatList1[t].Id);
+                    }
+
+                    t++;
+                }
+
+                Console.WriteLine();
+            }
+
             StarShow(45);
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Lütfen Adınızı Giriniz :");
@@ -230,7 +278,7 @@ namespace CinemaProject
             ticket.FilmName = films.filmList[chooseFilmNumber - 1].Name;
             ticket.FilmPrice = films.filmList[chooseFilmNumber - 1].Price;
             ticket.DateTime = DateTime.Now;
-            
+
 
             List<Ticket> ticketList = new List<Ticket>();
             ticketList.Add(ticket);
@@ -243,19 +291,19 @@ namespace CinemaProject
             Console.WriteLine("\tAd :{0}", ticket.Name);
             Console.WriteLine("\tSoyad :{0}", ticket.SurName);
             Console.WriteLine("\tFilm Adı :{0}", ticket.FilmName);
-            Console.WriteLine("\tKoltuk Numarası:{0}", seats.seatList[chooseSeatNumber - 1].Id);
+            Console.WriteLine("\tKoltuk Numarası:{0}", seats.seatList1[chooseSeatNumber - 1].Id);
             Console.WriteLine("\tBilet Fİyatı:{0}", ticket.FilmPrice);
             Console.WriteLine("\tAlınma Tarihi:{0}", ticket.DateTime);
-        Console.ResetColor();
+            Console.ResetColor();
             StarShow(30);
-
+            
             Console.WriteLine("Yeni bilet almak için 1 sayısını tuşlayınız");
             Console.WriteLine("Ya da herhangi bir rakam basınız");
             byte click = byte.Parse(Console.ReadLine());
             Console.Clear();
             if (click == 1)
             {
-                TheVisionFilms();
+                filmsInVision();
             }
 
         }
