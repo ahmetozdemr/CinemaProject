@@ -11,7 +11,7 @@ namespace CinemaProject
 {
     public class Tickets
     {
-        public byte Show(byte chooseSeatNumber, byte chooseFilmNumber, Films films, Seats seats, Ticket ticket)
+        public byte Show(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket)
         {
             Console.ResetColor();
             Stars.Show(45);
@@ -23,8 +23,8 @@ namespace CinemaProject
 
             ticket.Name = name;
             ticket.SurName = surName;
-            ticket.FilmName = films.filmList[chooseFilmNumber - 1].Name;
-            ticket.FilmPrice = films.filmList[chooseFilmNumber - 1].Price;
+            ticket.FilmName = films.filmList[selectedFilmNumber - 1].Name;
+            ticket.FilmPrice = films.filmList[selectedFilmNumber - 1].Price;
             ticket.DateTime = DateTime.Now;
 
 
@@ -36,7 +36,7 @@ namespace CinemaProject
             Console.WriteLine("\tAd :{0}", ticket.Name);
             Console.WriteLine("\tSoyad :{0}", ticket.SurName);
             Console.WriteLine("\tFilm Adı :{0}", ticket.FilmName);
-            Console.WriteLine("\tKoltuk Numarası:{0}", seats.seatList[chooseSeatNumber - 1].Id);
+            Console.WriteLine("\tKoltuk Numarası:{0}", seats.seatList[selectedSeatNumber - 1].Id);
             Console.WriteLine("\tBilet Fİyatı:{0}", ticket.FilmPrice);
             Console.WriteLine("\tAlınma Tarihi:{0}", ticket.DateTime);
             Console.ResetColor();
@@ -44,9 +44,9 @@ namespace CinemaProject
 
             Console.WriteLine("Yeni bilet almak için 1 sayısını tuşlayınız");
             Console.WriteLine("Ya da herhangi bir rakam basınız");
-            byte click = byte.Parse(Console.ReadLine());
+            byte response = byte.Parse(Console.ReadLine());
             Console.Clear();
-            return click;
+            return response;
         }
     }
 }

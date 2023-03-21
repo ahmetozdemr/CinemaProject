@@ -10,7 +10,7 @@ namespace CinemaProject
 {
     public class FilmlistCategory
     {
-        public byte Show(byte chooseCategoryNumber, Films films, Categories categories)
+        public byte Show(byte selectedCategoryNumber, Films films, Categories categories)
         {
             Stars.Show(48);
             Console.ForegroundColor = ConsoleColor.Red;
@@ -21,36 +21,33 @@ namespace CinemaProject
             int i = 0;
             while (i < films.filmList.Count)
             {
-                if (films.filmList[i].CategoryId == categories.categoryList[chooseCategoryNumber].Id)
-                {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    int lngth2;
-                    string ls;
-                    if (i < 9)
+                if (films.filmList[i].CategoryId == categories.categoryList[selectedCategoryNumber].Id)
+                 {                                             //Burdaki kod fiyat listesinin daha düzgün çkması için yapıldı
+                    int difference;
+                    string gapLenght;
+                    if (i < 9)                                // 9 dan küçük yapmamın sebebi, 9'dan sonra Id sayılar çift basamaklı olduğu için metin bi gıdım fazla çıkıyor
                     {
-                        lngth2 = (20 - films.filmList[i].Name.Length);
-                        int l = 0;
-                        ls = "";
-                        while (l < lngth2)
+                        difference = (20 - films.filmList[i].Name.Length);
+                        int l = 0;                             // l değişkeniyle differnce değerine kadar while döngüsünü döndürüyoruz
+                        gapLenght = "";
+                        while (l < difference)
                         {
-
-                            ls += " ";
+                            gapLenght += " ";
                             l++;
                         }
                     }
-                    else
+                    else                                        // 9 dan fazla olan Id sayılarının isim uzunluğunu 19'dan çıkardım
                     {
-                        lngth2 = (19 - films.filmList[i].Name.Length);
+                        difference = (19 - films.filmList[i].Name.Length);
                         int l = 0;
-                        ls = "";
-                        while (l < lngth2)
+                        gapLenght = "";
+                        while (l < difference)
                         {
-
-                            ls += " ";
+                            gapLenght += " ";
                             l++;
                         }
                     }
-                    Console.WriteLine(" {6}{0} {1}{3}{2}{4}{5}", "->", films.filmList[i].Name, films.filmList[i].Price + " TL", ls, "         ", categories.categoryList[chooseCategoryNumber].Name, i + 1);
+                    Console.WriteLine(" {6}{0} {1}{3}{2}{4}{5}", "->", films.filmList[i].Name, films.filmList[i].Price + " TL", gapLenght, "         ", categories.categoryList[selectedCategoryNumber].Name, i + 1);
                 }
                 i++;
             }

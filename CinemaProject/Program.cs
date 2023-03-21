@@ -59,10 +59,10 @@ namespace CinemaProject
             {
                 byte selectedCategoryNumber = filmsInVision.Show(films, categories);
                 byte selectedFilmNumber = filmlistCategory.Show(selectedCategoryNumber, films, categories);
-                byte selectedSeatNumber = seatNumber.Show(selectedFilmNumber, seats.seatList, tickets);
+                byte selectedSeatNumber = seatNumber.Show(seats.seatList);
 
-                byte click = tickets.Show(selectedSeatNumber, selectedFilmNumber, films, seats, ticket);
-                if (click == 1)
+                byte response = tickets.Show(selectedSeatNumber, selectedFilmNumber, films, seats, ticket);
+                if (response == 1)
                 {
                     continue;
                 }
@@ -71,8 +71,6 @@ namespace CinemaProject
                     break;
                 }
             }
-            
-
             // SimplePercentage.Show();
         }
     }
