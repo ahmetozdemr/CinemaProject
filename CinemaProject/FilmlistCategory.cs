@@ -12,11 +12,7 @@ namespace CinemaProject
     {
         public byte Show(byte chooseCategoryNumber, Films films, Categories categories)
         {
-            //Films films = new Films();
-            //Categories categories = new Categories();
-
             Stars.Show(48);
-           
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("{5} {0}{2}{1}{4}{3}", "|FİLM ADI|", "|FİYAT|", "         ", "|KATEGORİ|", "       ", "|NO|");
             Stars.Show(48);
@@ -54,7 +50,6 @@ namespace CinemaProject
                             l++;
                         }
                     }
-
                     Console.WriteLine(" {6}{0} {1}{3}{2}{4}{5}", "->", films.filmList[i].Name, films.filmList[i].Price + " TL", ls, "         ", categories.categoryList[chooseCategoryNumber].Name, i + 1);
                 }
                 i++;
@@ -64,13 +59,10 @@ namespace CinemaProject
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("İzlemek istediğiniz Filmin No suna giriniz:");
 
-            byte chooseFilmNumber = byte.Parse(Console.ReadLine());
+            byte selectedFilmNumber = byte.Parse(Console.ReadLine());
             Console.ResetColor();
             Console.Clear();
-            return chooseFilmNumber;
-
-            //SeatNumber seatNumber = new SeatNumber();
-            //seatNumber.Show(chooseFilmNumber);
+            return selectedFilmNumber;
         }
     }
 }

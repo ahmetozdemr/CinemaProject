@@ -1,4 +1,5 @@
 ﻿using CinemaProject.Data;
+using CinemaProject.Other;
 using CinemaProject.Trivia;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,8 @@ namespace CinemaProject
 {
     public class SeatNumber
     {
-        public byte Show(byte chooseFilmNumber, Seats seats, Tickets tickets)
+        public byte Show(byte chooseFilmNumber, List<Seat> seatList, Tickets tickets)
         {
-
-            // Seats seats = new Seats();
-
             int t = 0;
             for (int i = 0; i < 3; i++)
             {
@@ -22,33 +20,34 @@ namespace CinemaProject
                 for (int j = 0; j < 4; j++)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    if (seats.seatList[t].checkFill == true)
+                    if (seatList[t].checkFill == true)
                     {
-                        Console.Write("*Koltuk {0}\t", seats.seatList[t].Id);
+                        Console.Write("*Koltuk {0}\t", seatList[t].Id);
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("*Satıldı {0}\t", seats.seatList[t].Id);
+                        Console.Write("*Satıldı {0}\t", seatList[t].Id);
                     }
 
                     t++;
                 }
                 Console.WriteLine();
             }
-
             Stars.Show(58);
             Console.ResetColor();
 
             Console.ForegroundColor = ConsoleColor.Yellow;
+
             Console.WriteLine("Bir koltuk seçiniz :");
-            byte chooseSeatNumber = byte.Parse(Console.ReadLine());
+            byte selectedSeatNumber = byte.Parse(Console.ReadLine());
+            seatList[selectedSeatNumber - 1].checkFill = false;
+
+
             Console.ResetColor();
             Console.Clear();
-            return chooseSeatNumber;
+            return selectedSeatNumber;
 
-            //Tickets tickets = new Tickets();
-            // tickets.Show(chooseSeatNumber, chooseFilmNumber);
         }
     }
 }

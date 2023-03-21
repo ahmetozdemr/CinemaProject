@@ -18,8 +18,6 @@ namespace CinemaProject
             Console.WriteLine("                 VİZYONDAKİ FİLMLER");
             Stars.Show(48);
 
-            //Films films = new Films();
-            //Categories categories = new Categories();
             int t = 0;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("{5} {0}{2}{1}{4}{3}", "|FİLM ADI|", "|FİYAT|", "         ", "|KATEGORİ|", "       ", "|NO|");
@@ -70,14 +68,14 @@ namespace CinemaProject
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Bir Kategori Seçiniz");
-            for (int ii = 0; ii < categories.categoryList.Count; ii++)
+            for (int i = 0; i < categories.categoryList.Count; i++)
             {
-                Console.WriteLine("\t{0} => {1} ", ii, categories.categoryList[ii].Name);
+                Console.WriteLine("\t{0} => {1} ", i, categories.categoryList[i].Name);
             }
-            byte chooseCategoryNumber = byte.Parse(Console.ReadLine());
+            byte selectedCategoryNumber = byte.Parse(Console.ReadLine());
             Console.ResetColor();
             Console.Clear();
-            return chooseCategoryNumber;
+            return selectedCategoryNumber;
         }
     }
 }

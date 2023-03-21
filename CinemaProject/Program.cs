@@ -14,35 +14,66 @@ namespace CinemaProject
     {
         static void Main(string[] args)
         {
-            start:
+            NewMethod();
+            // NewMethod1();
+
+            Console.ReadKey();
+        }
+
+        private static void NewMethod1()
+        {
+            Seats seats = new Seats();
+            Update(seats.seatList);
+
+            ClassUpdate classUpdate = new ClassUpdate();
+            classUpdate.Updat2(seats.seatList);
+
+            ClassShow classShow = new ClassShow();
+            classShow.Showseat(seats.seatList);
+
+            //foreach (var VARIABLE in seats.seatList)
+            //{
+            //    Console.WriteLine("Id : {0} Boş: {1}",VARIABLE.Id, VARIABLE.checkFill);
+            //}
+        }
+
+        static void Update(List<Seat> seatList)
+        {
+            seatList[0].checkFill = false;
+        }
+        private static void NewMethod()
+        {
+
             // SimplePercentage.Show();
 
             Seats seats = new Seats();
             Ticket ticket = new Ticket();
             Films films = new Films();
             Tickets tickets = new Tickets();
-            Categories categories = new Categories();
-
-            FilmsInVision filmsInVision = new FilmsInVision();
-            byte selectedCategoryNumber = filmsInVision.Show(films, categories);
-
-            FilmlistCategory filmlistCategory = new FilmlistCategory();
-            byte selectedFilmNumber = filmlistCategory.Show(selectedCategoryNumber, films, categories);
-
             SeatNumber seatNumber = new SeatNumber();
-            byte selectedSeatNumber = seatNumber.Show(selectedFilmNumber, seats, tickets);
+            Categories categories = new Categories();
+            FilmsInVision filmsInVision = new FilmsInVision();
+            FilmlistCategory filmlistCategory = new FilmlistCategory();
 
-
-            byte click = tickets.Show(selectedSeatNumber, selectedFilmNumber, films, seats, ticket);
-
-            if (click == 1)
+            while (true)
             {
-                goto start;
+                byte selectedCategoryNumber = filmsInVision.Show(films, categories);
+                byte selectedFilmNumber = filmlistCategory.Show(selectedCategoryNumber, films, categories);
+                byte selectedSeatNumber = seatNumber.Show(selectedFilmNumber, seats.seatList, tickets);
+
+                byte click = tickets.Show(selectedSeatNumber, selectedFilmNumber, films, seats, ticket);
+                if (click == 1)
+                {
+                    continue;
+                }
+                else
+                {
+                    break;
+                }
             }
+            
 
             // SimplePercentage.Show();
-
-            Console.ReadKey();
         }
     }
 
