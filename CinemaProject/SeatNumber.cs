@@ -1,11 +1,8 @@
-﻿using CinemaProject.Data;
-using CinemaProject.Other;
+﻿using CinemaProject.Other;
 using CinemaProject.Trivia;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CinemaProject
 {

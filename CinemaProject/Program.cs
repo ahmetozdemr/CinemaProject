@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Threading;
 using CinemaProject.Data;
 using CinemaProject.Other;
-using CinemaProject.Trivia;
 
 namespace CinemaProject
 {
@@ -43,7 +38,6 @@ namespace CinemaProject
         }
         private static void NewMethod()
         {
-
             // SimplePercentage.Show();
 
             Seats seats = new Seats();
