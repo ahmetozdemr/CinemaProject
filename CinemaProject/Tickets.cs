@@ -11,13 +11,9 @@ namespace CinemaProject
 {
     public class Tickets
     {
-        public void Show(byte chooseSeatNumber, byte chooseFilmNumber)
+        public byte Show(byte chooseSeatNumber, byte chooseFilmNumber, Films films, Seats seats, Ticket ticket)
         {
-            Films films = new Films();
-            Seats seats = new Seats();
-            Ticket ticket = new Ticket();
             Console.ResetColor();
-
             Stars.Show(45);
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Lütfen Adınızı Giriniz :");
@@ -32,9 +28,6 @@ namespace CinemaProject
             ticket.DateTime = DateTime.Now;
 
 
-            List<Ticket> ticketList = new List<Ticket>();
-            ticketList.Add(ticket);
-
             Console.Clear();
             Stars.Show(30);
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -43,7 +36,7 @@ namespace CinemaProject
             Console.WriteLine("\tAd :{0}", ticket.Name);
             Console.WriteLine("\tSoyad :{0}", ticket.SurName);
             Console.WriteLine("\tFilm Adı :{0}", ticket.FilmName);
-            Console.WriteLine("\tKoltuk Numarası:{0}", seats.seatList1[chooseSeatNumber - 1].Id);
+            Console.WriteLine("\tKoltuk Numarası:{0}", seats.seatList[chooseSeatNumber - 1].Id);
             Console.WriteLine("\tBilet Fİyatı:{0}", ticket.FilmPrice);
             Console.WriteLine("\tAlınma Tarihi:{0}", ticket.DateTime);
             Console.ResetColor();
@@ -53,11 +46,7 @@ namespace CinemaProject
             Console.WriteLine("Ya da herhangi bir rakam basınız");
             byte click = byte.Parse(Console.ReadLine());
             Console.Clear();
-            if (click == 1)
-            {
-                FilmsInVision filmsInVision = new FilmsInVision();
-                filmsInVision.Show();
-            }
+            return click;
         }
     }
 }

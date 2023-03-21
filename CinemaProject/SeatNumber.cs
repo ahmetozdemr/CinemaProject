@@ -10,9 +10,11 @@ namespace CinemaProject
 {
     public class SeatNumber
     {
-        public void Show(byte chooseFilmNumber)
+        public byte Show(byte chooseFilmNumber, Seats seats, Tickets tickets)
         {
-            Seats seats = new Seats();
+
+            // Seats seats = new Seats();
+
             int t = 0;
             for (int i = 0; i < 3; i++)
             {
@@ -20,14 +22,14 @@ namespace CinemaProject
                 for (int j = 0; j < 4; j++)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    if (seats.seatList1[t].checkFill == true)
+                    if (seats.seatList[t].checkFill == true)
                     {
-                        Console.Write("*Koltuk {0}\t", seats.seatList1[t].Id);
+                        Console.Write("*Koltuk {0}\t", seats.seatList[t].Id);
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("*Satıldı {0}\t", seats.seatList1[t].Id);
+                        Console.Write("*Satıldı {0}\t", seats.seatList[t].Id);
                     }
 
                     t++;
@@ -43,9 +45,10 @@ namespace CinemaProject
             byte chooseSeatNumber = byte.Parse(Console.ReadLine());
             Console.ResetColor();
             Console.Clear();
+            return chooseSeatNumber;
 
-            Tickets tickets = new Tickets();
-            tickets.Show(chooseSeatNumber, chooseFilmNumber);
+            //Tickets tickets = new Tickets();
+            // tickets.Show(chooseSeatNumber, chooseFilmNumber);
         }
     }
 }

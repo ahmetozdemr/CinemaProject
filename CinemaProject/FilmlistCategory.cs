@@ -10,10 +10,10 @@ namespace CinemaProject
 {
     public class FilmlistCategory
     {
-        public void Show(byte chooseCategoryNumber)
+        public byte Show(byte chooseCategoryNumber, Films films, Categories categories)
         {
-            Films films = new Films();
-            Categories categories = new Categories();
+            //Films films = new Films();
+            //Categories categories = new Categories();
 
             Stars.Show(48);
            
@@ -67,8 +67,10 @@ namespace CinemaProject
             byte chooseFilmNumber = byte.Parse(Console.ReadLine());
             Console.ResetColor();
             Console.Clear();
-            SeatNumber seatNumber = new SeatNumber();
-            seatNumber.Show(chooseFilmNumber);
+            return chooseFilmNumber;
+
+            //SeatNumber seatNumber = new SeatNumber();
+            //seatNumber.Show(chooseFilmNumber);
         }
     }
 }

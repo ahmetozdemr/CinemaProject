@@ -10,7 +10,7 @@ namespace CinemaProject
 {
     public class FilmsInVision
     {
-        public void Show()
+        public byte Show(Films films, Categories categories)
         {
             Stars.Show(48);
 
@@ -18,8 +18,8 @@ namespace CinemaProject
             Console.WriteLine("                 VİZYONDAKİ FİLMLER");
             Stars.Show(48);
 
-            Films films = new Films();
-            Categories categories = new Categories();
+            //Films films = new Films();
+            //Categories categories = new Categories();
             int t = 0;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("{5} {0}{2}{1}{4}{3}", "|FİLM ADI|", "|FİYAT|", "         ", "|KATEGORİ|", "       ", "|NO|");
@@ -77,9 +77,7 @@ namespace CinemaProject
             byte chooseCategoryNumber = byte.Parse(Console.ReadLine());
             Console.ResetColor();
             Console.Clear();
-
-            FilmlistCategory filmlistCategory = new FilmlistCategory();
-            filmlistCategory.Show(chooseCategoryNumber);
+            return chooseCategoryNumber;
         }
     }
 }

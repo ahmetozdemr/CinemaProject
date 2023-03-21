@@ -9,7 +9,7 @@ namespace CinemaProject.Data
 {
     public class Seats : Seat
     {
-        public List<Seat> seatList1 = new List<Seat>()
+        public List<Seat> seatList = new List<Seat>()
       {
           new Seat(){Id = 1,checkFill = true},new Seat(){Id = 2,checkFill = true},
           new Seat(){Id = 3,checkFill = true},new Seat(){Id = 4,checkFill = true},
