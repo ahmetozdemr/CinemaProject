@@ -9,31 +9,14 @@ namespace CinemaProject
     {
         static void Main(string[] args)
         {
-           NewMethod();
-            // NewMethod1();
-
+            NewMethod();
+            
             //Seats seats = new Seats();
             //seats.seatList1();
 
             Console.ReadKey();
         }
 
-        private static void NewMethod1()
-        {
-            Seats seats = new Seats();
-            Update(seats.seatList);
-
-            ClassUpdate classUpdate = new ClassUpdate();
-            classUpdate.Updat2(seats.seatList);
-
-            ClassShow classShow = new ClassShow();
-            classShow.Showseat(seats.seatList);
-
-            //foreach (var VARIABLE in seats.seatList)
-            //{
-            //    Console.WriteLine("Id : {0} Boş: {1}",VARIABLE.Id, VARIABLE.checkFill);
-            //}
-        }
 
         static void Update(List<Seat> seatList)
         {
@@ -43,7 +26,11 @@ namespace CinemaProject
         {
             // SimplePercentage.Show();
 
-            Seats seats = new Seats();
+            List<Seat> seatList1 = new List<Seat>();
+            int listLenght = 13;
+            Seats seats = new Seats(seatList1, listLenght);
+
+            
             Ticket ticket = new Ticket();
             Films films = new Films();
             Tickets tickets = new Tickets();

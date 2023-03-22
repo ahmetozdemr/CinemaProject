@@ -32,7 +32,7 @@ namespace CinemaProject
             Console.WriteLine("\tAd :{0}", ticket.Name);
             Console.WriteLine("\tSoyad :{0}", ticket.SurName);
             Console.WriteLine("\tFilm Adı :{0}", ticket.FilmName);
-            Console.WriteLine("\tKoltuk Numarası:{0}", seats.seatList[selectedSeatNumber - 1].Id);
+            Console.WriteLine("\tKoltuk Numarası:{0}", seats.SeatList[selectedSeatNumber - 1].Id);
             Console.WriteLine("\tBilet Fİyatı:{0}", ticket.FilmPrice);
             Console.WriteLine("\tAlınma Tarihi:{0}", ticket.DateTime);
             Console.ResetColor();
