@@ -9,20 +9,12 @@ namespace CinemaProject
     {
         static void Main(string[] args)
         {
-            NewMethod();
-            
-            //Seats seats = new Seats();
-            //seats.seatList1();
+            Start();
 
             Console.ReadKey();
         }
 
-
-        static void Update(List<Seat> seatList)
-        {
-            seatList[0].checkFill = false;
-        }
-        private static void NewMethod()
+        private static void Start()
         {
             // SimplePercentage.Show();
 
@@ -30,7 +22,7 @@ namespace CinemaProject
             int listLenght = 13;
             Seats seats = new Seats(seatList1, listLenght);
 
-            
+
             Ticket ticket = new Ticket();
             Films films = new Films();
             Tickets tickets = new Tickets();
