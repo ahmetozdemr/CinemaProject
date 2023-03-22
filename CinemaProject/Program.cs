@@ -18,10 +18,19 @@ namespace CinemaProject
         {
             // SimplePercentage.Show();
 
-            List<Seat> seatList1 = new List<Seat>();
-            int listLenght = 13;
-            Seats seats = new Seats(seatList1, listLenght);
+            List<Seat> seatList1;
+            int listLenght;
+            Seats seats = null;
 
+            short i = 1;
+            while (i < 13)
+            {
+                seatList1 = new List<Seat>();
+                listLenght = 13;
+                seats = new Seats(seatList1, listLenght);
+
+                i++;
+            }
 
             Ticket ticket = new Ticket();
             Films films = new Films();
