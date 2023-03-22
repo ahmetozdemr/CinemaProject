@@ -7,7 +7,7 @@ namespace CinemaProject
 {
     public class FilmlistCategory
     {
-        public byte Show(byte selectedCategoryNumber, Films films, Categories categories, List<Seats> seatsCollective)
+        public byte Show(byte selectedCategoryNumber, Films films, Categories categories)
         {
             Stars.Show(48);
             Console.ForegroundColor = ConsoleColor.Red;

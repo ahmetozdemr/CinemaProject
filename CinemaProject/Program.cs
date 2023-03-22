@@ -11,6 +11,31 @@ namespace CinemaProject
         {
             Start();
 
+            //List<Seat> seatList1;
+            //int listLenght;
+            //Seats seats = null;
+
+            //List<Seats> seatsCollective = new List<Seats>();
+
+            //short i = 1;
+            //while (i < 13)
+            //{
+            //    seatList1 = new List<Seat>();
+            //    listLenght = 13;
+            //    seats = new Seats(seatList1, listLenght);
+
+            //    seatsCollective.Add(new Seats(seatList1, listLenght));
+            //    Console.WriteLine(seatsCollective.Count);
+
+            //    i++;
+            //}
+
+            //foreach (var VARIABLE in seatsCollective)
+            //{
+            //    Console.WriteLine("----------:  " + VARIABLE.seatList1().Count);
+
+            //}
+
             Console.ReadKey();
         }
 
@@ -18,8 +43,8 @@ namespace CinemaProject
         {
             // SimplePercentage.Show();
 
-            List<Seat> seatList1 = new List<Seat>();
-            int listLenght = 13;
+            List<Seat> seatList1;
+            int listLenght;
             Seats seats = null;
 
             List<Seats> seatsCollective = new List<Seats>();
@@ -27,10 +52,14 @@ namespace CinemaProject
             short i = 1;
             while (i < 13)
             {
+                seatList1 = new List<Seat>();
+                listLenght = 13;
                 seats = new Seats(seatList1, listLenght);
 
                 seatsCollective.Add(new Seats(seatList1, listLenght));
-                  i++;
+                // Console.WriteLine(seatsCollective.Count);
+
+                i++;
             }
 
             Ticket ticket = new Ticket();
@@ -44,13 +73,11 @@ namespace CinemaProject
             while (true)
             {
                 byte selectedCategoryNumber = filmsInVision.Show(films, categories);
-                byte selectedFilmNumber = filmlistCategory.Show(selectedCategoryNumber, films, categories, seatsCollective);
-                //byte selectedSeatNumber = seatNumber.Show(seats.seatList1());
+                byte selectedFilmNumber = filmlistCategory.Show(selectedCategoryNumber, films, categories);
 
                 byte selectedSeatNumber = seatNumber.Show(seatsCollective[selectedFilmNumber].seatList1());
-                
-                //byte response = tickets.Show(selectedSeatNumber, selectedFilmNumber, films, seats, ticket);
-                byte response = tickets.Show(selectedSeatNumber, selectedFilmNumber, films, seatsCollective[0], ticket);
+                ;
+                byte response = tickets.Show(selectedSeatNumber, selectedFilmNumber, films, seatsCollective[selectedFilmNumber], ticket);
                 if (response == 1)
                 {
                     continue;
