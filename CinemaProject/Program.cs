@@ -9,8 +9,11 @@ namespace CinemaProject
     {
         static void Main(string[] args)
         {
-            NewMethod();
+           NewMethod();
             // NewMethod1();
+
+            //Seats seats = new Seats();
+            //seats.seatList1();
 
             Console.ReadKey();
         }
@@ -53,7 +56,7 @@ namespace CinemaProject
             {
                 byte selectedCategoryNumber = filmsInVision.Show(films, categories);
                 byte selectedFilmNumber = filmlistCategory.Show(selectedCategoryNumber, films, categories);
-                byte selectedSeatNumber = seatNumber.Show(seats.seatList);
+                byte selectedSeatNumber = seatNumber.Show(seats.seatList1());
 
                 byte response = tickets.Show(selectedSeatNumber, selectedFilmNumber, films, seats, ticket);
                 if (response == 1)
