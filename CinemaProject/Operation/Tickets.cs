@@ -3,7 +3,7 @@ using CinemaProject.Other;
 using CinemaProject.Trivia;
 using System;
 
-namespace CinemaProject
+namespace CinemaProject.Operation
 {
     public class Tickets
     {

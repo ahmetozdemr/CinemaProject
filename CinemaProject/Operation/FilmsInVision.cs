@@ -2,7 +2,7 @@
 using System;
 using CinemaProject.Trivia;
 
-namespace CinemaProject
+namespace CinemaProject.Operation
 {
     public class FilmsInVision
     {
@@ -14,7 +14,7 @@ namespace CinemaProject
             Console.WriteLine("                 VİZYONDAKİ FİLMLER");
             Stars.Show(48);
 
-            
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("{5} {0}{2}{1}{4}{3}", "|FİLM ADI|", "|FİYAT|", "         ", "|KATEGORİ|", "       ", "|NO|");
             Console.ResetColor();
@@ -30,7 +30,7 @@ namespace CinemaProject
                     string gapLenght;
                     if (r < 9)                                // 9 dan küçük yapmamın sebebi, 9'dan sonra Id sayılar çift basamaklı olduğu için metin bi gıdım fazla çıkıyor
                     {
-                        difference = (20 - films.filmList[r].Name.Length);
+                        difference = 20 - films.filmList[r].Name.Length;
                         int l = 0;                             // l değişkeniyle differnce değerine kadar while döngüsünü döndürüyoruz
                         gapLenght = "";
                         while (l < difference)
@@ -41,7 +41,7 @@ namespace CinemaProject
                     }
                     else                                        // 9 dan fazla olan Id sayılarının isim uzunluğunu 19'dan çıkardım
                     {
-                        difference = (19 - films.filmList[r].Name.Length);
+                        difference = 19 - films.filmList[r].Name.Length;
                         int l = 0;
                         gapLenght = "";
                         while (l < difference)
@@ -59,15 +59,36 @@ namespace CinemaProject
             }
             Console.WriteLine();
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Bir Kategori Seçiniz");
-            for (int i = 0; i < categories.categoryList.Count; i++)
+
+
+            //Bu kısımda kategori seçimi yapılıyor
+            byte selectedCategoryNumber = 5;
+
+            while (selectedCategoryNumber > 4 || selectedCategoryNumber < 1)
             {
-                Console.WriteLine("\t{0} => {1} ", i, categories.categoryList[i].Name);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("1 ile 4 arasında bir Kategori Seçiniz");
+                for (int i = 0; i < categories.categoryList.Count; i++)
+
+                {
+                    Console.WriteLine("\t{0} => {1} ", i + 1, categories.categoryList[i].Name);
+                }
+
+                try
+                {
+                    selectedCategoryNumber = byte.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
+                    Console.ResetColor();
+                    selectedCategoryNumber = 5;
+                }
             }
-            byte selectedCategoryNumber = byte.Parse(Console.ReadLine());
-            Console.ResetColor();
             Console.Clear();
+
+
             return selectedCategoryNumber;
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CinemaProject.Data;
+using CinemaProject.Operation;
 using CinemaProject.Other;
 
 namespace CinemaProject
