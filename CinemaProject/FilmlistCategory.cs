@@ -1,12 +1,13 @@
 ﻿using CinemaProject.Data;
 using CinemaProject.Trivia;
 using System;
+using System.Collections.Generic;
 
 namespace CinemaProject
 {
     public class FilmlistCategory
     {
-        public byte Show(byte selectedCategoryNumber, Films films, Categories categories)
+        public byte Show(byte selectedCategoryNumber, Films films, Categories categories, List<Seats> seatsCollective)
         {
             Stars.Show(48);
             Console.ForegroundColor = ConsoleColor.Red;
@@ -18,7 +19,7 @@ namespace CinemaProject
             while (i < films.filmList.Count)
             {
                 if (films.filmList[i].CategoryId == categories.categoryList[selectedCategoryNumber].Id)
-                 {                                             //Burdaki kod fiyat listesinin daha düzgün çkması için yapıldı
+                {                                             //Burdaki kod fiyat listesinin daha düzgün çkması için yapıldı
                     int difference;
                     string gapLenght;
                     if (i < 9)                                // 9 dan küçük yapmamın sebebi, 9'dan sonra Id sayılar çift basamaklı olduğu için metin bi gıdım fazla çıkıyor
