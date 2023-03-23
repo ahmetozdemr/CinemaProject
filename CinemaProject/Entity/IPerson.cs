@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace CinemaProject.Entity
 {
-    public class Customer : IPerson
+    public interface IPerson
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string SurName { get; set; }
+        int Id { get; set; }    
+        string Name { get; set; }
+        string SurName { get; set; }
     }
 }
