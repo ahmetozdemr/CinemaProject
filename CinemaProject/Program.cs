@@ -39,22 +39,26 @@ namespace CinemaProject
             Tickets tickets = new Tickets(ticketList);
             int ticketId = 0;
 
+            TicketInfo ticketInfo = new TicketInfo();   
+
             Ticket ticket = new Ticket();
             Films films = new Films();
-            TicketsInfo ticketsInfo = new TicketsInfo();
+            TicketRegister ticketRegister = new TicketRegister();
             ChooseSeatNumber chooseSeatNumber = new ChooseSeatNumber();
             Categories categories = new Categories();
-            FilmsInVision filmsInVision = new FilmsInVision();
+            FilmInVision filmInVision = new FilmInVision();
             FilmlistByCategory filmlistByCategory = new FilmlistByCategory();
 
             while (true)
             {
-                byte selectedCategoryNumber = filmsInVision.Show(films, categories);
+                byte selectedCategoryNumber = filmInVision.Show(films, categories);
                 byte selectedFilmNumber = filmlistByCategory.Show(selectedCategoryNumber, films, categories);
 
-                byte selectedSeatNumber = chooseSeatNumber.Show(seatsCollective[selectedFilmNumber].SeatListGive());
+                byte selectedSeatNumber = chooseSeatNumber.Show(seatsCollective[selectedFilmNumber-1].SeatListGive());
 
-                byte response = ticketsInfo.Show(selectedSeatNumber, selectedFilmNumber, films, seatsCollective[selectedFilmNumber], ticket, tickets,ref ticketId);
+                ticketRegister.Add(selectedSeatNumber, selectedFilmNumber, films, seatsCollective[selectedFilmNumber-1], ticket, tickets,ref ticketId);
+
+                byte response = ticketInfo.Show(tickets);
                 if (response == 1)
                 {
                     continue;

@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace CinemaProject.Operation
 {
-    public class TicketsInfo
+    public class TicketRegister
     {
-        public byte Show(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket, Tickets tickets,ref int ticketId)
+        public void Add(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket, Tickets tickets, ref int ticketId)
         {
             string firstName = null;
             string lastName = null;
@@ -73,6 +73,7 @@ namespace CinemaProject.Operation
                     x = true;
                 }
             }
+
             ticketId++;
             ticket.Id = ticketId;
             ticket.FirstName = firstName;
@@ -81,62 +82,63 @@ namespace CinemaProject.Operation
             ticket.FilmPrice = films.filmList[selectedFilmNumber - 1].Price;
             ticket.DateTime = DateTime.Now;
 
-            tickets.TicketList.Add(new Ticket() { Id = ticket.Id, FilmName = ticket.FirstName, LastName = ticket.FilmName, FilmPrice = ticket.FilmPrice, DateTime = ticket.DateTime });
+            tickets.TicketList.Add(new Ticket() { Id = ticket.Id, FirstName = ticket.FirstName, LastName = ticket.LastName, FilmName = ticket.FilmName, FilmPrice = ticket.FilmPrice, DateTime = ticket.DateTime, SeatNo = seats.SeatList[selectedSeatNumber - 1].Id });
 
-            foreach (var item in tickets.TicketList)
-            {
-                Console.WriteLine(item.Id);
-            }
-
-            Console.Clear();
-            Stars.Show(30);
-            Console.ForegroundColor = ConsoleColor.Yellow;
-
-            Console.WriteLine("\t====CİNEMA BİLETİ====");
-            Console.WriteLine("\tAd :{0}", ticket.FirstName);
-            Console.WriteLine("\tSoyad :{0}", ticket.LastName);
-            Console.WriteLine("\tFilm Adı :{0}", ticket.FilmName);
-            Console.WriteLine("\tKoltuk Numarası:{0}", seats.SeatList[selectedSeatNumber - 1].Id);
-            Console.WriteLine("\tBilet Fİyatı:{0}", ticket.FilmPrice);
-            Console.WriteLine("\tAlınma Tarihi:{0}", ticket.DateTime);
-            Console.ResetColor();
-            Stars.Show(30);
-
-            byte response = 0;
-            bool a = true;
-            while (a)
-            {
-                try
-                {
-                    Console.Write("Yeni bilet almak için");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write(" 1");
-                    Console.ResetColor();
-                    Console.WriteLine(" sayısını tuşlayınız");
-
-                    Console.Write("İşlemi sonlandırmak için");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write(" 2");
-                    Console.ResetColor();
-                    Console.WriteLine(" sayısını tuşlayınız");
-                    response = byte.Parse(Console.ReadLine());
-
-                    a = (response == 1) || (response == 2) ? false : true;
-                }
-                catch
-                {
-
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
-                    Console.ResetColor();
-                    a = true;
-                }
-            }
-
-
+            //foreach (var item in tickets.TicketList)
+            //{
+            //    Console.WriteLine(item.Id);
+            //}
 
             Console.Clear();
-            return response;
+
+            //Stars.Show(30);
+            //Console.ForegroundColor = ConsoleColor.Yellow;
+
+            //Console.WriteLine("\t====CİNEMA BİLETİ====");
+            //Console.WriteLine("\tAd :{0}", ticket.FirstName);
+            //Console.WriteLine("\tSoyad :{0}", ticket.LastName);
+            //Console.WriteLine("\tFilm Adı :{0}", ticket.FilmName);
+            //Console.WriteLine("\tKoltuk Numarası:{0}", seats.SeatList[selectedSeatNumber - 1].Id);
+            //Console.WriteLine("\tBilet Fİyatı:{0}", ticket.FilmPrice);
+            //Console.WriteLine("\tAlınma Tarihi:{0}", ticket.DateTime);
+            //Console.ResetColor();
+            //Stars.Show(30);
+
+            //byte response = 0;
+            //bool a = true;
+            //while (a)
+            //{
+            //    try
+            //    {
+            //        Console.Write("Yeni bilet almak için");
+            //        Console.ForegroundColor = ConsoleColor.Green;
+            //        Console.Write(" 1");
+            //        Console.ResetColor();
+            //        Console.WriteLine(" sayısını tuşlayınız");
+
+            //        Console.Write("İşlemi sonlandırmak için");
+            //        Console.ForegroundColor = ConsoleColor.Green;
+            //        Console.Write(" 2");
+            //        Console.ResetColor();
+            //        Console.WriteLine(" sayısını tuşlayınız");
+            //        response = byte.Parse(Console.ReadLine());
+
+            //        a = (response == 1) || (response == 2) ? false : true;
+            //    }
+            //    catch
+            //    {
+
+            //        Console.ForegroundColor = ConsoleColor.Red;
+            //        Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
+            //        Console.ResetColor();
+            //        a = true;
+            //    }
+            //}
+
+
+
+            //Console.Clear();
+            //return response;
         }
     }
 }

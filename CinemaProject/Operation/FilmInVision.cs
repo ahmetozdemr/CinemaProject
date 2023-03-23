@@ -4,7 +4,7 @@ using CinemaProject.Trivia;
 
 namespace CinemaProject.Operation
 {
-    public class FilmsInVision
+    public class FilmInVision
     {
         public byte Show(Films filmList, Categories categoryList)
         {
