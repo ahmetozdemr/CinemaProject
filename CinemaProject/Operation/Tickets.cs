@@ -43,7 +43,7 @@ namespace CinemaProject.Operation
                                         y = true;
                                     }
                                 }
-                                y= false;
+                                y = false;
                             }
                             y = false;
                         }
@@ -96,9 +96,39 @@ namespace CinemaProject.Operation
             Console.ResetColor();
             Stars.Show(30);
 
-            Console.WriteLine("Yeni bilet almak için 1 sayısını tuşlayınız");
-            Console.WriteLine("Ya da herhangi bir rakam basınız");
-            byte response = byte.Parse(Console.ReadLine());
+            byte response = 0;
+            bool a = true;
+            while (a)
+            {
+                try
+                {
+                    Console.Write("Yeni bilet almak için");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(" 1");
+                    Console.ResetColor();
+                    Console.WriteLine(" sayısını tuşlayınız");
+
+                    Console.Write("İşlemi sonlandırmak için");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(" 2");
+                    Console.ResetColor();
+                    Console.WriteLine(" sayısını tuşlayınız");
+                    response = byte.Parse(Console.ReadLine());
+
+                    a = (response == 1) || (response == 2) ? false : true;
+                }
+                catch
+                {
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
+                    Console.ResetColor();
+                    a = true;
+                }
+            }
+
+
+
             Console.Clear();
             return response;
         }

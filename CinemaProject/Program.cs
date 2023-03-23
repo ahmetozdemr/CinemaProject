@@ -58,7 +58,6 @@ namespace CinemaProject
                 seats = new Seats(seatList1, listLenght);
 
                 seatsCollective.Add(new Seats(seatList1, listLenght));
-                // Console.WriteLine(seatsCollective.Count);
 
                 i++;
             }
