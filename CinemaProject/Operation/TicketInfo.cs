@@ -17,16 +17,18 @@ namespace CinemaProject.Operation
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("\t==========CİNEMA BİLETİ==========");
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Bilet No :{0}", item.Id);
-                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("\tAd :{0}", item.FirstName);
                 Console.WriteLine("\tSoyad :{0}", item.LastName);
                 Console.WriteLine("\tFilm Adı :{0}", item.FilmName);
                 Console.WriteLine("\tKoltuk Numarası:{0}", item.SeatNo);
-                Console.WriteLine("\tBilet Fİyatı:{0}", item.FilmPrice);
+                Console.WriteLine("\tBilet Fİyatı:{0} TL", item.FilmPrice);
                 Console.WriteLine("\tAlınma Tarihi:{0}", item.DateTime);
+                Console.WriteLine("\t=================================");
+                Console.WriteLine("");
                 Console.ResetColor();
             }
 
@@ -60,9 +62,6 @@ namespace CinemaProject.Operation
                     a = true;
                 }
             }
-
-
-
             Console.Clear();
             return response;
         }
