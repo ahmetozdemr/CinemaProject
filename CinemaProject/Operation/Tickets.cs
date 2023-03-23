@@ -2,6 +2,7 @@
 using CinemaProject.Other;
 using CinemaProject.Trivia;
 using System;
+using System.Linq;
 
 namespace CinemaProject.Operation
 {
@@ -9,13 +10,59 @@ namespace CinemaProject.Operation
     {
         public byte Show(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket)
         {
-            Console.ResetColor();
-            Stars.Show(45);
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Lütfen Adınızı Giriniz :");
-            string name = Console.ReadLine();
-            Console.WriteLine("Lütfen Soyadınız Giriniz :");
-            string surName = Console.ReadLine();
+            string name = null;
+            string surName = null;
+            bool x = true;
+            while (x)
+            {
+                try
+                {
+                    Console.ResetColor();
+                    Stars.Show(45);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("Lütfen Adınızı Giriniz :");
+                    name = Console.ReadLine();
+                    Console.WriteLine("Lütfen Soyadınız Giriniz :");
+                    surName = Console.ReadLine();
+
+                    //Bu kısımda name ve surName değişkenlerinin boş,null ya da sade boşluktan oluşup oluşmadığını kontrol ediyor.
+                    //Tüm kuralları sağlıyorsa while döngüsünden çıkıyor
+                    if (!String.IsNullOrEmpty(name) && !String.IsNullOrEmpty(surName))
+                    {
+                        foreach (var item1 in name)
+                        {
+                            if (item1 != ' ')
+                            {
+                                foreach (var item2 in surName)
+                                {
+                                    if (item2 != ' ')
+                                    {
+                                        x = false;
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        x = true;
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Lütfen gerekli yerleri doldurunuz");
+                        Console.ResetColor();
+                    }
+
+                }
+                catch
+                {
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
+                    Console.ResetColor();
+                    x = true;
+                }
+            }
+
 
             ticket.Name = name;
             ticket.SurName = surName;

@@ -33,12 +33,37 @@ namespace CinemaProject.Operation
             Stars.Show(58);
             Console.ResetColor();
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            byte selectedSeatNumber = 0;
+            bool x = true;
+            while (x)
+            {
+                try
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("Bir koltuk seçiniz :");
+                    selectedSeatNumber = byte.Parse(Console.ReadLine());
+                    if (selectedSeatNumber < 13 && selectedSeatNumber > 0)
+                    {
+                        seatList[selectedSeatNumber - 1].checkFill = false;
+                        x = false;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
+                        Console.ResetColor();
+                        x = true;
+                    }
 
-            Console.WriteLine("Bir koltuk seçiniz :");
-            byte selectedSeatNumber = byte.Parse(Console.ReadLine());
-            seatList[selectedSeatNumber - 1].checkFill = false;
-
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
+                    Console.ResetColor();
+                    x = true;
+                }
+            }
 
             Console.ResetColor();
             Console.Clear();

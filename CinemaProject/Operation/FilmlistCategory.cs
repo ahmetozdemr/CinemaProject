@@ -80,7 +80,7 @@ namespace CinemaProject.Operation
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Lütfen geçerli bir değer tuşlayınız");
                                 Console.ResetColor();
-                                y= false;
+                                y= false; //Burda bool y kullanmamın sebebi her defasında birden fazla geçerli değildir yazısını yazdırmaması içindir.
                             }
 
                             x = true;                           
