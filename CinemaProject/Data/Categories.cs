@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
-using CinemaProject.Entity;
+﻿using CinemaProject.Entity;
+using System.Collections.Generic;
 
 namespace CinemaProject.Data
 {
     public class Categories
     {
+      
      public List<Category> categoryList = new List<Category>()
         {
             new Category(){Id = 1,Name="Fantastik"},

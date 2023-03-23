@@ -17,7 +17,7 @@ namespace CinemaProject.Data
         public List<Seat> SeatList { get => _seatList; set => _seatList = value; }
         public int ListLenght { get => _listLenght; set => _listLenght = value; }
 
-        public List<Seat> seatList1()
+        public List<Seat> seatList()
         {
 
             for (short i = 1; i < ListLenght; i++)

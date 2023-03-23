@@ -18,7 +18,7 @@ namespace CinemaProject
         {
             // SimplePercentage.Show();
 
-            List<Seat> seatList1;
+            List<Seat> seatList;
             int listLenght;
             Seats seats = null;
 
@@ -27,11 +27,11 @@ namespace CinemaProject
             short i = 1;
             while (i < 13)
             {
-                seatList1 = new List<Seat>();
+                seatList = new List<Seat>();
                 listLenght = 13;
-                seats = new Seats(seatList1, listLenght);
+                seats = new Seats(seatList, listLenght);
 
-                seatsCollective.Add(new Seats(seatList1, listLenght));
+                seatsCollective.Add(new Seats(seatList, listLenght));
 
                 i++;
             }
@@ -49,7 +49,7 @@ namespace CinemaProject
                 byte selectedCategoryNumber = filmsInVision.Show(films, categories);
                 byte selectedFilmNumber = filmlistCategory.Show(selectedCategoryNumber, films, categories);
 
-                byte selectedSeatNumber = chooseSeatNumber.Show(seatsCollective[selectedFilmNumber].seatList1());
+                byte selectedSeatNumber = chooseSeatNumber.Show(seatsCollective[selectedFilmNumber].seatList());
                 
                 byte response = tickets.Show(selectedSeatNumber, selectedFilmNumber, films, seatsCollective[selectedFilmNumber], ticket);
                 if (response == 1)
