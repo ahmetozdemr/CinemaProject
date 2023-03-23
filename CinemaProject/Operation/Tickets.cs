@@ -13,6 +13,7 @@ namespace CinemaProject.Operation
             string name = null;
             string surName = null;
             bool x = true;
+            bool y = true;
             while (x)
             {
                 try
@@ -25,8 +26,9 @@ namespace CinemaProject.Operation
                     Console.WriteLine("Lütfen Soyadınız Giriniz :");
                     surName = Console.ReadLine();
 
-                    //Bu kısımda name ve surName değişkenlerinin boş,null ya da sade boşluktan oluşup oluşmadığını kontrol ediyor.
+                    //Bu kısımda name ve surName değişkenlerinin boş,null ya da sadece boşluktan oluşup oluşmadığını kontrol ediyor.
                     //Tüm kuralları sağlıyorsa while döngüsünden çıkıyor
+                    //Burdaki y değişkeni if ten sonra bir hata oluşursa hata çıktısı verirsin diye konuldu
                     if (!String.IsNullOrEmpty(name) && !String.IsNullOrEmpty(surName))
                     {
                         foreach (var item1 in name)
@@ -38,15 +40,24 @@ namespace CinemaProject.Operation
                                     if (item2 != ' ')
                                     {
                                         x = false;
+                                        y = true;
                                     }
                                 }
+                                y= false;
                             }
-
+                            y = false;
                         }
+                        y = false;
                     }
                     else
                     {
                         x = true;
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Lütfen gerekli yerleri doldurunuz");
+                        Console.ResetColor();
+                    }
+                    if (!y)
+                    {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Lütfen gerekli yerleri doldurunuz");
                         Console.ResetColor();
