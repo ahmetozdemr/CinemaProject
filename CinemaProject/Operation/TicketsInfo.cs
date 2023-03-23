@@ -8,7 +8,7 @@ namespace CinemaProject.Operation
 {
     public class TicketsInfo
     {
-        public byte Show(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket, Tickets tickets,int ticketId)
+        public byte Show(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket, Tickets tickets,ref int ticketId)
         {
             string firstName = null;
             string lastName = null;
@@ -40,14 +40,14 @@ namespace CinemaProject.Operation
                                     if (item2 != ' ')
                                     {
                                         x = false;
-                                        y = true;
+                                        y = false;
                                     }
                                 }
-                                y = false;
+                                y = true;
                             }
-                            y = false;
+                            y = true;
                         }
-                        y = false;
+                        y = true;
                     }
                     else
                     {
@@ -73,8 +73,8 @@ namespace CinemaProject.Operation
                     x = true;
                 }
             }
-
-            ticket.Id = ticketId++;
+            ticketId++;
+            ticket.Id = ticketId;
             ticket.FirstName = firstName;
             ticket.LastName = lastName;
             ticket.FilmName = films.filmList[selectedFilmNumber - 1].Name;

@@ -54,7 +54,7 @@ namespace CinemaProject
 
                 byte selectedSeatNumber = chooseSeatNumber.Show(seatsCollective[selectedFilmNumber].SeatListGive());
 
-                byte response = ticketsInfo.Show(selectedSeatNumber, selectedFilmNumber, films, seatsCollective[selectedFilmNumber], ticket, tickets, ticketId);
+                byte response = ticketsInfo.Show(selectedSeatNumber, selectedFilmNumber, films, seatsCollective[selectedFilmNumber], ticket, tickets,ref ticketId);
                 if (response == 1)
                 {
                     continue;
