@@ -35,23 +35,24 @@ namespace CinemaProject
 
                 i++;
             }
+            Tickets ticketList = new Tickets();
 
             Ticket ticket = new Ticket();
-            Films films = new Films();
-            TicketsInfo tickets = new TicketsInfo();
+            Films filmList = new Films();
+            TicketsInfo ticketsInfo = new TicketsInfo();
             ChooseSeatNumber chooseSeatNumber = new ChooseSeatNumber();
-            Categories categories = new Categories();
+            Categories categoryList = new Categories();
             FilmsInVision filmsInVision = new FilmsInVision();
             FilmlistByCategory filmlistCategory = new FilmlistByCategory();
 
             while (true)
             {
-                byte selectedCategoryNumber = filmsInVision.Show(films, categories);
-                byte selectedFilmNumber = filmlistCategory.Show(selectedCategoryNumber, films, categories);
+                byte selectedCategoryNumber = filmsInVision.Show(filmList, categoryList);
+                byte selectedFilmNumber = filmlistCategory.Show(selectedCategoryNumber, filmList, categoryList);
 
                 byte selectedSeatNumber = chooseSeatNumber.Show(seatsCollective[selectedFilmNumber].seatList());
-                
-                byte response = tickets.Show(selectedSeatNumber, selectedFilmNumber, films, seatsCollective[selectedFilmNumber], ticket);
+
+                byte response = ticketsInfo.Show(selectedSeatNumber, selectedFilmNumber, filmList, seatsCollective[selectedFilmNumber], ticket, ticketList);
                 if (response == 1)
                 {
                     continue;

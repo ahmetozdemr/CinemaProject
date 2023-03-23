@@ -8,7 +8,7 @@ namespace CinemaProject.Operation
 {
     public class TicketsInfo
     {
-        public byte Show(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket)
+        public byte Show(byte selectedSeatNumber, byte selectedFilmNumber, Films filmList, Seats seatList, Ticket ticket,Tickets ticketList)
         {
             string firstName = null;
             string lastName = null;
@@ -77,8 +77,8 @@ namespace CinemaProject.Operation
 
             ticket.FirstName = firstName;
             ticket.LastName = lastName;
-            ticket.FilmName = films.filmList[selectedFilmNumber - 1].Name;
-            ticket.FilmPrice = films.filmList[selectedFilmNumber - 1].Price;
+            ticket.FilmName = filmList.filmList[selectedFilmNumber - 1].Name;
+            ticket.FilmPrice = filmList.filmList[selectedFilmNumber - 1].Price;
             ticket.DateTime = DateTime.Now;
 
 
@@ -90,7 +90,7 @@ namespace CinemaProject.Operation
             Console.WriteLine("\tAd :{0}", ticket.FirstName);
             Console.WriteLine("\tSoyad :{0}", ticket.LastName);
             Console.WriteLine("\tFilm Adı :{0}", ticket.FilmName);
-            Console.WriteLine("\tKoltuk Numarası:{0}", seats.SeatList[selectedSeatNumber - 1].Id);
+            Console.WriteLine("\tKoltuk Numarası:{0}", seatList.SeatList[selectedSeatNumber - 1].Id);
             Console.WriteLine("\tBilet Fİyatı:{0}", ticket.FilmPrice);
             Console.WriteLine("\tAlınma Tarihi:{0}", ticket.DateTime);
             Console.ResetColor();

@@ -9,6 +9,6 @@ namespace CinemaProject.Data
 {
     public class Tickets
     {
-        List<Ticket> tickets;  
+        List<Ticket> ticketList = new List<Ticket>();  
     }
 }

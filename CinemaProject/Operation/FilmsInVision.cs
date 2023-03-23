@@ -6,7 +6,7 @@ namespace CinemaProject.Operation
 {
     public class FilmsInVision
     {
-        public byte Show(Films films, Categories categories)
+        public byte Show(Films filmList, Categories categoryList)
         {
             Stars.Show(48);
 
@@ -30,7 +30,7 @@ namespace CinemaProject.Operation
                     string gapLenght;
                     if (r < 9)                                // 9 dan küçük yapmamın sebebi, 9'dan sonra Id sayılar çift basamaklı olduğu için metin bi gıdım fazla çıkıyor
                     {
-                        difference = 20 - films.filmList[r].Name.Length;
+                        difference = 20 - filmList.filmList[r].Name.Length;
                         int l = 0;                             // l değişkeniyle differnce değerine kadar while döngüsünü döndürüyoruz
                         gapLenght = "";
                         while (l < difference)
@@ -41,7 +41,7 @@ namespace CinemaProject.Operation
                     }
                     else                                        // 9 dan fazla olan Id sayılarının isim uzunluğunu 19'dan çıkardım
                     {
-                        difference = 19 - films.filmList[r].Name.Length;
+                        difference = 19 - filmList.filmList[r].Name.Length;
                         int l = 0;
                         gapLenght = "";
                         while (l < difference)
@@ -50,7 +50,7 @@ namespace CinemaProject.Operation
                             l++;
                         }
                     }
-                    Console.WriteLine(" {6}{0} {1}{3}{2}{4}{5}", "->", films.filmList[r].Name, films.filmList[r].Price + " TL", gapLenght, "         ", categories.categoryList[i].Name, r + 1);
+                    Console.WriteLine(" {6}{0} {1}{3}{2}{4}{5}", "->", filmList.filmList[r].Name, filmList.filmList[r].Price + " TL", gapLenght, "         ", categoryList.categoryList[i].Name, r + 1);
                     r++;
                 }
 
@@ -68,16 +68,16 @@ namespace CinemaProject.Operation
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("1 ile 4 arasında bir Kategori Seçiniz");
-                for (int i = 0; i < categories.categoryList.Count; i++)
+                for (int i = 0; i < categoryList.categoryList.Count; i++)
                 {
-                    Console.WriteLine("\t{0} => {1} ", i + 1, categories.categoryList[i].Name);
+                    Console.WriteLine("\t{0} => {1} ", i + 1, categoryList.categoryList[i].Name);
                 }
 
                 try
                 {
                     selectedCategoryNumber = byte.Parse(Console.ReadLine());
 
-                    if (selectedCategoryNumber <= categories.categoryList.Count && selectedCategoryNumber > 0)
+                    if (selectedCategoryNumber <= categoryList.categoryList.Count && selectedCategoryNumber > 0)
                     {
                         x = false;
                     }
