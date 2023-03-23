@@ -58,6 +58,7 @@ namespace CinemaProject.Operation
 
             byte selectedFilmNumber = 0;
             bool x = true;
+            bool y = true;
             while (x)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -65,18 +66,24 @@ namespace CinemaProject.Operation
                 try
                 {
                     selectedFilmNumber = byte.Parse(Console.ReadLine());
+                    y = true;
                     foreach (var item in temp1)
                     {
                         if (item.Id == selectedFilmNumber)
                         {
                             x = false;
+                            break;//while döngüsü içindeki foreach yapısında break kullanıldığında sadece foareach yapısını durdurur ve while döngüsü herhangi bir şekilde etkilenmeden devam eder.
                         }
                         else
                         {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Lütfen geçrli bir değer tuşlayınız");
-                            Console.ResetColor();
-                            x = true;
+                            if(y) {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Lütfen geçerli bir değer tuşlayınız");
+                                Console.ResetColor();
+                                y= false;
+                            }
+
+                            x = true;                           
                         }
                     }
 
@@ -96,36 +103,3 @@ namespace CinemaProject.Operation
         }
     }
 }
-
-
-/*
-   //Bu kısımda kategori seçimi yapılıyor
-            byte selectedCategoryNumber = 5;
-
-            while (selectedCategoryNumber > 4 || selectedCategoryNumber < 1)
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("1 ile 4 arasında bir Kategori Seçiniz");
-                for (int i = 0; i < categories.categoryList.Count; i++)
-
-                {
-                    Console.WriteLine("\t{0} => {1} ", i + 1, categories.categoryList[i].Name);
-                }
-
-                try
-                {
-                    selectedCategoryNumber = byte.Parse(Console.ReadLine());
-                }
-                catch
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
-                    Console.ResetColor();
-                    selectedCategoryNumber = 5;
-                }
-            }
-            Console.Clear();
-
-
-            return selectedCategoryNumber;
- */

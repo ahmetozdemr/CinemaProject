@@ -62,14 +62,13 @@ namespace CinemaProject.Operation
 
 
             //Bu kısımda kategori seçimi yapılıyor
-            byte selectedCategoryNumber = 5;
-
-            while (selectedCategoryNumber > 4 || selectedCategoryNumber < 1)
+            byte selectedCategoryNumber = 0;
+            bool x = true;
+            while (x)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("1 ile 4 arasında bir Kategori Seçiniz");
                 for (int i = 0; i < categories.categoryList.Count; i++)
-
                 {
                     Console.WriteLine("\t{0} => {1} ", i + 1, categories.categoryList[i].Name);
                 }
@@ -77,13 +76,25 @@ namespace CinemaProject.Operation
                 try
                 {
                     selectedCategoryNumber = byte.Parse(Console.ReadLine());
+
+                    if (selectedCategoryNumber <= categories.categoryList.Count && selectedCategoryNumber > 0)
+                    {
+                        x = false;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
+                        Console.ResetColor();
+                        x = true;
+                    }
                 }
                 catch
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
                     Console.ResetColor();
-                    selectedCategoryNumber = 5;
+                    x = true;
                 }
             }
             Console.Clear();
