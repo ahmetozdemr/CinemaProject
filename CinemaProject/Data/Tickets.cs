@@ -9,6 +9,24 @@ namespace CinemaProject.Data
 {
     public class Tickets
     {
-        List<Ticket> ticketList = new List<Ticket>();  
+        private List<Ticket> _ticketList;
+
+        //public Tickets(List<Ticket> ticketList)
+        //{
+        //    _ticketList = ticketList;
+        //}
+
+        public List<Ticket> TicketList
+        {
+            get { return _ticketList; }
+            set { _ticketList = value; }
+        }
+
+
+        public List<Ticket> TicketListGive()
+        {
+
+            return TicketList;
+        }
     }
 }

@@ -50,7 +50,7 @@ namespace CinemaProject
                 byte selectedCategoryNumber = filmsInVision.Show(filmList, categoryList);
                 byte selectedFilmNumber = filmlistCategory.Show(selectedCategoryNumber, filmList, categoryList);
 
-                byte selectedSeatNumber = chooseSeatNumber.Show(seatsCollective[selectedFilmNumber].seatList());
+                byte selectedSeatNumber = chooseSeatNumber.Show(seatsCollective[selectedFilmNumber].SeatListGive());
 
                 byte response = ticketsInfo.Show(selectedSeatNumber, selectedFilmNumber, filmList, seatsCollective[selectedFilmNumber], ticket, ticketList);
                 if (response == 1)
