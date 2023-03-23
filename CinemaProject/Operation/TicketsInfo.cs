@@ -8,7 +8,7 @@ namespace CinemaProject.Operation
 {
     public class TicketsInfo
     {
-        public byte Show(byte selectedSeatNumber, byte selectedFilmNumber, Films filmList, Seats seatList, Ticket ticket,Tickets ticketList)
+        public byte Show(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket, Tickets tickets,int ticketId)
         {
             string firstName = null;
             string lastName = null;
@@ -74,13 +74,19 @@ namespace CinemaProject.Operation
                 }
             }
 
-
+            ticket.Id = ticketId++;
             ticket.FirstName = firstName;
             ticket.LastName = lastName;
-            ticket.FilmName = filmList.filmList[selectedFilmNumber - 1].Name;
-            ticket.FilmPrice = filmList.filmList[selectedFilmNumber - 1].Price;
+            ticket.FilmName = films.filmList[selectedFilmNumber - 1].Name;
+            ticket.FilmPrice = films.filmList[selectedFilmNumber - 1].Price;
             ticket.DateTime = DateTime.Now;
 
+            tickets.TicketList.Add(new Ticket() { Id = ticket.Id, FilmName = ticket.FirstName, LastName = ticket.FilmName, FilmPrice = ticket.FilmPrice, DateTime = ticket.DateTime });
+
+            foreach (var item in tickets.TicketList)
+            {
+                Console.WriteLine(item.Id);
+            }
 
             Console.Clear();
             Stars.Show(30);
@@ -90,7 +96,7 @@ namespace CinemaProject.Operation
             Console.WriteLine("\tAd :{0}", ticket.FirstName);
             Console.WriteLine("\tSoyad :{0}", ticket.LastName);
             Console.WriteLine("\tFilm Adı :{0}", ticket.FilmName);
-            Console.WriteLine("\tKoltuk Numarası:{0}", seatList.SeatList[selectedSeatNumber - 1].Id);
+            Console.WriteLine("\tKoltuk Numarası:{0}", seats.SeatList[selectedSeatNumber - 1].Id);
             Console.WriteLine("\tBilet Fİyatı:{0}", ticket.FilmPrice);
             Console.WriteLine("\tAlınma Tarihi:{0}", ticket.DateTime);
             Console.ResetColor();

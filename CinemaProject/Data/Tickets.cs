@@ -11,10 +11,10 @@ namespace CinemaProject.Data
     {
         private List<Ticket> _ticketList;
 
-        //public Tickets(List<Ticket> ticketList)
-        //{
-        //    _ticketList = ticketList;
-        //}
+        public Tickets(List<Ticket> ticketList)
+        {
+            _ticketList = ticketList;
+        }
 
         public List<Ticket> TicketList
         {
@@ -22,11 +22,13 @@ namespace CinemaProject.Data
             set { _ticketList = value; }
         }
 
+        
 
-        public List<Ticket> TicketListGive()
-        {
+        //public List<Ticket> TicketListGive()
+        //{
+        //    TicketList.Add(new Ticket() { });
 
-            return TicketList;
-        }
+        //    return TicketList;
+        //}
     }
 }
