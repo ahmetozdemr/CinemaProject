@@ -1,5 +1,4 @@
-﻿
-namespace CinemaProject.Other
+﻿namespace CinemaProject.Entity
 {
     public class Film
     {

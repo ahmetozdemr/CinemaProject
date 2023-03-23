@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using CinemaProject.Other;
+using CinemaProject.Entity;
 
 namespace CinemaProject.Data
 {
-    public class Categories:Category
+    public class Categories
     {
      public List<Category> categoryList = new List<Category>()
         {

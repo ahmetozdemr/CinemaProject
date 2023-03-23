@@ -1,17 +1,17 @@
 ﻿using CinemaProject.Data;
-using CinemaProject.Other;
+using CinemaProject.Entity;
 using CinemaProject.Trivia;
 using System;
 using System.Linq;
 
 namespace CinemaProject.Operation
 {
-    public class Tickets
+    public class TicketsInfo
     {
         public byte Show(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket)
         {
-            string name = null;
-            string surName = null;
+            string firstName = null;
+            string lastName = null;
             bool x = true;
             bool y = true;
             while (x)
@@ -22,20 +22,20 @@ namespace CinemaProject.Operation
                     Stars.Show(45);
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("Lütfen Adınızı Giriniz :");
-                    name = Console.ReadLine();
+                    firstName = Console.ReadLine();
                     Console.WriteLine("Lütfen Soyadınız Giriniz :");
-                    surName = Console.ReadLine();
+                    lastName = Console.ReadLine();
 
                     //Bu kısımda name ve surName değişkenlerinin boş,null ya da sadece boşluktan oluşup oluşmadığını kontrol ediyor.
                     //Tüm kuralları sağlıyorsa while döngüsünden çıkıyor
                     //Burdaki y değişkeni if ten sonra bir hata oluşursa hata çıktısı verirsin diye konuldu
-                    if (!String.IsNullOrEmpty(name) && !String.IsNullOrEmpty(surName))
+                    if (!String.IsNullOrEmpty(firstName) && !String.IsNullOrEmpty(lastName))
                     {
-                        foreach (var item1 in name)
+                        foreach (var item1 in firstName)
                         {
                             if (item1 != ' ')
                             {
-                                foreach (var item2 in surName)
+                                foreach (var item2 in lastName)
                                 {
                                     if (item2 != ' ')
                                     {
@@ -75,8 +75,8 @@ namespace CinemaProject.Operation
             }
 
 
-            ticket.Name = name;
-            ticket.SurName = surName;
+            ticket.FirstName = firstName;
+            ticket.LastName = lastName;
             ticket.FilmName = films.filmList[selectedFilmNumber - 1].Name;
             ticket.FilmPrice = films.filmList[selectedFilmNumber - 1].Price;
             ticket.DateTime = DateTime.Now;
@@ -87,8 +87,8 @@ namespace CinemaProject.Operation
             Console.ForegroundColor = ConsoleColor.Yellow;
 
             Console.WriteLine("\t====CİNEMA BİLETİ====");
-            Console.WriteLine("\tAd :{0}", ticket.Name);
-            Console.WriteLine("\tSoyad :{0}", ticket.SurName);
+            Console.WriteLine("\tAd :{0}", ticket.FirstName);
+            Console.WriteLine("\tSoyad :{0}", ticket.LastName);
             Console.WriteLine("\tFilm Adı :{0}", ticket.FilmName);
             Console.WriteLine("\tKoltuk Numarası:{0}", seats.SeatList[selectedSeatNumber - 1].Id);
             Console.WriteLine("\tBilet Fİyatı:{0}", ticket.FilmPrice);

@@ -1,4 +1,4 @@
-﻿using CinemaProject.Other;
+﻿using CinemaProject.Entity;
 using CinemaProject.Trivia;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace CinemaProject.Operation
 {
-    public class SeatNumber
+    public class ChooseSeatNumber
     {
         public byte Show(List<Seat> seatList)
         {
@@ -17,7 +17,7 @@ namespace CinemaProject.Operation
                 for (int j = 0; j < 4; j++)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    if (seatList[r].checkFill == true)
+                    if (seatList[r].CheckFill == true)
                     {
                         Console.Write("*Koltuk {0}\t", seatList[r].Id);
                     }
@@ -44,7 +44,7 @@ namespace CinemaProject.Operation
                     selectedSeatNumber = byte.Parse(Console.ReadLine());
                     if (selectedSeatNumber < 13 && selectedSeatNumber > 0)
                     {
-                        seatList[selectedSeatNumber - 1].checkFill = false;
+                        seatList[selectedSeatNumber - 1].CheckFill = false;
                         x = false;
                     }
                     else

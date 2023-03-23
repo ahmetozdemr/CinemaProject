@@ -1,12 +1,12 @@
 ﻿using CinemaProject.Data;
-using CinemaProject.Other;
+using CinemaProject.Entity;
 using CinemaProject.Trivia;
 using System;
 using System.Collections.Generic;
 
 namespace CinemaProject.Operation
 {
-    public class FilmlistCategory
+    public class FilmlistByCategory
     {
         public byte Show(byte selectedCategoryNumber, Films films, Categories categories)
         {

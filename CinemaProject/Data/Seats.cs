@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using CinemaProject.Other;
+using CinemaProject.Entity;
 
 namespace CinemaProject.Data
 {
-    public class Seats : Seat
+    public class Seats
     {
         private List<Seat> _seatList;
         private int _listLenght;
@@ -22,7 +22,7 @@ namespace CinemaProject.Data
 
             for (short i = 1; i < ListLenght; i++)
             {
-                SeatList.Add(new Seat() { Id = i, checkFill = true });
+                SeatList.Add(new Seat() { Id = i, CheckFill = true });
             }
 
             return SeatList;
