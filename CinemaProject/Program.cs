@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CinemaProject.Data;
 using CinemaProject.Entity;
 using CinemaProject.Operation;
+using CinemaProject.Trivia;
 
 namespace CinemaProject
 {
@@ -16,47 +17,40 @@ namespace CinemaProject
 
         private static void Start()
         {
-            // SimplePercentage.Show();
+            SimplePercentage.Show();
 
-            List<Seat> seatList;
-            int listLenght;
-            Seats seats = null;
+            var seatsCollectiveList = new List<Seats>();
+            var seatsCollective = new SeatsCollective();
+            seatsCollective.Show(seatsCollectiveList);
 
-            List<Seats> seatsCollective = new List<Seats>();
 
-            short i = 1;
-            while (i < 13)
-            {
-                seatList = new List<Seat>();
-                listLenght = 13;
-                seats = new Seats(seatList, listLenght);
+            var ticketList = new List<Ticket>();
+            //Data klasöründeki instancelar
+            var films = new Films();
+            var categories = new Categories();
+            var tickets = new Tickets(ticketList);
 
-                seatsCollective.Add(new Seats(seatList, listLenght));
+            //Entity clasöründeki instancelar
+            var ticket = new Ticket();
 
-                i++;
-            }
-            List<Ticket> ticketList = new List<Ticket>();
-            Tickets tickets = new Tickets(ticketList);
-            int ticketId = 0;
 
-            TicketInfo ticketInfo = new TicketInfo();   
+            //Operation klasöründeki instancelar
+            var filmInVision = new FilmInVision();
+            var filmlistByCategory = new FilmlistByCategory();
+            var chooseSeatNumber = new ChooseSeatNumber();
+            var ticketRegister = new TicketRegister();
+            var ticketInfo = new TicketInfo();
 
-            Ticket ticket = new Ticket();
-            Films films = new Films();
-            TicketRegister ticketRegister = new TicketRegister();
-            ChooseSeatNumber chooseSeatNumber = new ChooseSeatNumber();
-            Categories categories = new Categories();
-            FilmInVision filmInVision = new FilmInVision();
-            FilmlistByCategory filmlistByCategory = new FilmlistByCategory();
 
             while (true)
             {
                 byte selectedCategoryNumber = filmInVision.Show(films, categories);
                 byte selectedFilmNumber = filmlistByCategory.Show(selectedCategoryNumber, films, categories);
 
-                byte selectedSeatNumber = chooseSeatNumber.Show(seatsCollective[selectedFilmNumber-1].SeatListGive());
+                byte selectedSeatNumber = chooseSeatNumber.Show(seatsCollectiveList[selectedFilmNumber - 1].SeatListGive());
 
-                ticketRegister.Add(selectedSeatNumber, selectedFilmNumber, films, seatsCollective[selectedFilmNumber-1], ticket, tickets,ref ticketId);
+                int ticketId = 0;
+                ticketRegister.Add(selectedSeatNumber, selectedFilmNumber, films, seatsCollectiveList[selectedFilmNumber - 1], ticket, tickets, ref ticketId);
 
                 byte response = ticketInfo.Show(tickets);
                 if (response == 1)
@@ -68,7 +62,7 @@ namespace CinemaProject
                     break;
                 }
             }
-            // SimplePercentage.Show();
+            SimplePercentage.Show();
         }
     }
 

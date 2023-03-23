@@ -40,13 +40,13 @@ namespace CinemaProject.Operation
                 {
                     Console.Write("Yeni bilet almak için");
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write(" 1");
+                    Console.Write(" (1)");
                     Console.ResetColor();
                     Console.WriteLine(" sayısını tuşlayınız");
 
                     Console.Write("İşlemi sonlandırmak için");
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write(" 2");
+                    Console.Write(" (2)");
                     Console.ResetColor();
                     Console.WriteLine(" sayısını tuşlayınız");
                     response = byte.Parse(Console.ReadLine());

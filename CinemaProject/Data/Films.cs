@@ -5,6 +5,7 @@ namespace CinemaProject.Data
 {
     public class Films
     {
+
         public List<Film> filmList = new List<Film>()
         {
             new Film() {Id = 1,Name = "Avatar",CategoryId = 1,Price = 60},

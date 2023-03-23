@@ -1,9 +1,6 @@
 ﻿using CinemaProject.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaProject.Data
 {
@@ -22,13 +19,5 @@ namespace CinemaProject.Data
             set { _ticketList = value; }
         }
 
-        
-
-        //public List<Ticket> TicketListGive()
-        //{
-        //    TicketList.Add(new Ticket() { });
-
-        //    return TicketList;
-        //}
     }
 }
