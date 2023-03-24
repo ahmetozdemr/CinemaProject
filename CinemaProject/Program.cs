@@ -17,7 +17,6 @@ namespace CinemaProject
 
         private static void Start()
         {
-            SimplePercentage.Show();
 
             var seatsCollectiveList = new List<Seats>();
             var seatsCollective = new SeatsCollective();
@@ -41,7 +40,7 @@ namespace CinemaProject
             var ticketRegister = new TicketRegister();
             var ticketInfo = new TicketInfo();
 
-
+            //Bu kısımda operasyonları sırasıyla çalışıyor ve işlem sona erdilmediği sürece kendini tekrar ediyor
             while (true)
             {
                 byte selectedCategoryNumber = filmInVision.Show(films, categories);
@@ -62,7 +61,7 @@ namespace CinemaProject
                     break;
                 }
             }
-            SimplePercentage.Show();
+
         }
     }
 

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace CinemaProject.Operation
 {
-    public class FilmlistByCategory
+    public class FilmlistByCategory: IOperation
     {
         public byte Show(byte selectedCategoryNumber, Films films, Categories categories)
         {

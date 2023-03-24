@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CinemaProject.Operation
 {
-    public class TicketInfo
+    public class TicketInfo: IOperation
     {
         public byte Show(Tickets tickets)
         {

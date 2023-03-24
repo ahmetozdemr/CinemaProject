@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace CinemaProject.Operation
 {
-    public class TicketRegister
+    public class TicketRegister : IOperation
     {
         public void Add(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket, Tickets tickets, ref int ticketId)
         {
@@ -40,14 +40,14 @@ namespace CinemaProject.Operation
                                     if (item2 != ' ')
                                     {
                                         x = false;
-                                        y = false;
+                                        y = true;
                                     }
                                 }
-                                y = true;
+                                y = false;
                             }
-                            y = true;
+                            y = false;
                         }
-                        y = true;
+                        y = false;
                     }
                     else
                     {

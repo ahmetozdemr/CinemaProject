@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace CinemaProject.Operation
 {
-    public class ChooseSeatNumber
+    public class ChooseSeatNumber : IOperation
     {
         public byte Show(List<Seat> seatList)
         {

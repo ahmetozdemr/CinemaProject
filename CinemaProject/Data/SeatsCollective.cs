@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CinemaProject.Data
 {
-    public class SeatsCollective
+    public class SeatsCollective: IData
     {
         public void Show(List<Seats> seatsCollective)
         {

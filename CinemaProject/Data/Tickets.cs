@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CinemaProject.Data
 {
-    public class Tickets
+    public class Tickets: IData
     {
         private List<Ticket> _ticketList;
 

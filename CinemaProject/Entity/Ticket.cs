@@ -2,7 +2,7 @@
 
 namespace CinemaProject.Entity
 {
-    public class Ticket : Customer
+    public class Ticket : Customer, IEntity
     {
 
         public string FilmName { get; set; }

@@ -3,7 +3,7 @@ using CinemaProject.Entity;
 
 namespace CinemaProject.Data
 {
-    public class Films
+    public class Films: IData
     {
 
         public List<Film> filmList = new List<Film>()

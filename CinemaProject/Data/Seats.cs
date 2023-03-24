@@ -4,7 +4,7 @@ using CinemaProject.Entity;
 
 namespace CinemaProject.Data
 {
-    public class Seats
+    public class Seats: IData
     {
         private List<Seat> _seatList;
         private int _listLenght;

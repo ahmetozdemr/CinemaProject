@@ -1,6 +1,6 @@
 ﻿namespace CinemaProject.Entity
 {
-    public class Film
+    public class Film: IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

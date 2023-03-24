@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CinemaProject.Data
 {
-    public class Categories
+    public class Categories: IData
     {
       
      public List<Category> categoryList = new List<Category>()
