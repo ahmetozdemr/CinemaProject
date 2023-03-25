@@ -11,6 +11,11 @@ namespace CinemaProject
     {
         static void Main(string[] args)
         {
+            List<User> users = new List<User>();
+            UserData userData = new UserData(users);
+            UserLogin userLogin = new UserLogin();
+            userLogin.Login(userData.UserDataGet());
+
             Start();
             Console.ReadKey();
         }
