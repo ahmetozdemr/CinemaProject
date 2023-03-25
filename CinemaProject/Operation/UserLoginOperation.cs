@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CinemaProject.Data;
 using CinemaProject.Entity;
 
 namespace CinemaProject.Operation
 {
-    public class UserLogin
+    public class UserLoginOperation
     {
-        public void Login(List<User> users)
+        public int Login(List<User> users)
         {
            
             bool checkLogin = true;
+            int activeUserId=0;
             while (checkLogin)
             {
                 Console.WriteLine("\tKullanıcı Login Sayfası");
@@ -27,6 +29,7 @@ namespace CinemaProject.Operation
                     {
                         Console.WriteLine("Giriş başarıldı");
                         checkLogin = !checkLogin;
+                        activeUserId = item.Id;
                     }
                 }
                 if (checkLogin)
@@ -35,6 +38,8 @@ namespace CinemaProject.Operation
                 }
             }
             Console.Clear();
+
+            return activeUserId;
         }
     }
 }

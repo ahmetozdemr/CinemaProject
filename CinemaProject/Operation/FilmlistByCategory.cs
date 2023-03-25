@@ -55,7 +55,6 @@ namespace CinemaProject.Operation
             }
             Stars.Show(48);
 
-
             byte selectedFilmNumber = 0;
             bool x = true;
             bool y = true;

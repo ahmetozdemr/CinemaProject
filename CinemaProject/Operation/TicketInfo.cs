@@ -31,7 +31,7 @@ namespace CinemaProject.Operation
                 Console.WriteLine("");
                 Console.ResetColor();
             }
-
+           
             byte response = 0;
             bool a = true;
             while (a)

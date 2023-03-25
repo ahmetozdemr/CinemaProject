@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaProject.Entity
+namespace CinemaProject.Entities
 {
-    public interface IEntity
+    public abstract class Customer : User
     {
     }
 }

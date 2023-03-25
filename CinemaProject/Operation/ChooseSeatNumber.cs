@@ -34,8 +34,8 @@ namespace CinemaProject.Operation
             Console.ResetColor();
 
             byte selectedSeatNumber = 0;
-            bool x = true;
-            while (x)
+            bool checkSelectedNumber = true;
+            while (checkSelectedNumber)
             {
                 try
                 {
@@ -45,14 +45,14 @@ namespace CinemaProject.Operation
                     if (selectedSeatNumber < 13 && selectedSeatNumber > 0)
                     {
                         seatList[selectedSeatNumber - 1].CheckFill = false;
-                        x = false;
+                        checkSelectedNumber = !checkSelectedNumber;
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
                         Console.ResetColor();
-                        x = true;
+                        checkSelectedNumber = true;
                     }
 
                 }
@@ -61,7 +61,7 @@ namespace CinemaProject.Operation
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
                     Console.ResetColor();
-                    x = true;
+                    checkSelectedNumber = true;
                 }
             }
 

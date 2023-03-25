@@ -1,16 +1,17 @@
-﻿using CinemaProject.Data;
-using CinemaProject.Entity;
-using CinemaProject.Trivia;
+﻿using CinemaProject.Trivia;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CinemaProject.Operation
 {
-    public class TicketRegister : IOperation
+    public class UserRegisterOperation
     {
-        public void Add(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket, Tickets tickets, ref int ticketId,int activeUserId, UserData userData)
+
+        public void UserAdd()
         {
-            /*
             string firstName = null;
             string lastName = null;
             bool checkGap = true;
@@ -74,26 +75,7 @@ namespace CinemaProject.Operation
                     checkGap = true;
                 }
             }
-            */
-            ticket.Id = userData.UserDataGet()[activeUserId - 1].Id;
-            ticket.FirstName = userData.UserDataGet()[activeUserId-1].FirstName;
-            ticket.LastName = userData.UserDataGet()[activeUserId - 1].LastName;
-            ticket.FilmName = films.filmList[selectedFilmNumber - 1].Name;
-            ticket.FilmPrice = films.filmList[selectedFilmNumber - 1].Price;
-            ticket.DateTime = DateTime.Now;
-
-
-            //ticketId++;
-            //ticket.Id = ticketId;
-            //ticket.FirstName = firstName;
-            //ticket.LastName = lastName;
-            //ticket.FilmName = films.filmList[selectedFilmNumber - 1].Name;
-            //ticket.FilmPrice = films.filmList[selectedFilmNumber - 1].Price;
-            //ticket.DateTime = DateTime.Now;
-
-            tickets.TicketList.Add(new Ticket() { Id = ticket.Id, FirstName = ticket.FirstName, LastName = ticket.LastName, FilmName = ticket.FilmName, FilmPrice = ticket.FilmPrice, DateTime = ticket.DateTime, SeatNo = seats.SeatList[selectedSeatNumber - 1].Id });
-            Console.Clear();
-
+            
         }
     }
 }

@@ -11,7 +11,7 @@ namespace CinemaProject.Data
         {
             _users = users;
         }
-        public List<User> Users{get => _users;}
+        public List<User> Users{ get => _users;}
 
         public List<User> UserDataGet()
         {

@@ -1,4 +1,4 @@
-﻿namespace CinemaProject.Entity
+﻿namespace CinemaProject.Entities
 {
     public class Category: IEntity
     {
