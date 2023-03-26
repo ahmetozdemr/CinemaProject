@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CinemaProject.DataAccess.Abstract
 {
-    internal interface ITicketDal
+    public interface ITicketDal
     {
         List<Ticket> GetAll();
         void Add(Ticket ticket);

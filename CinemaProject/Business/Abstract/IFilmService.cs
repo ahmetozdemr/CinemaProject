@@ -12,6 +12,8 @@ namespace CinemaProject.Business.Abstract
         void Add();
         List<Film> GetAll();
         int GetAllByCategoryId(int selectedCategoryNumber);
-      
+        int GetAllInVision();
+
+
     }
 }

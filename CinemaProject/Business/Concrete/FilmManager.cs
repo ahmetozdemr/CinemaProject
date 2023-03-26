@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CinemaProject.Business.Concrete
 {
-    internal class FilmManager : IFilmService
+    public class FilmManager : IFilmService
     {
         IFilmDal _filmDal;
         ICategoryDal _categoryDal;
@@ -139,7 +139,7 @@ namespace CinemaProject.Business.Concrete
                 int i = 0;
                 while (i < _filmDal.GetAll().Count)
                 {
-                    if (_filmDal.GetAll()[i].CategoryId == _categoryDal.GetAll()[_selectedCategoryNumber - 1].Id) //bu kısımda film listimde categori Id si ile categori listinde idleri eşit olan film listesini çağırdım
+                    if (_filmDal.GetAll()[i].CategoryId == _categoryDal.GetAll()[selectedCategoryNumber - 1].Id) //bu kısımda film listimde categori Id si ile categori listinde idleri eşit olan film listesini çağırdım
                     {                                             //Burdaki kod fiyat listesinin daha düzgün çkması için yapıldı
                         int difference;
                         string gapLenght;
@@ -167,7 +167,7 @@ namespace CinemaProject.Business.Concrete
                         }
                         temp1.Add(_filmDal.GetAll()[i]);//Geçici bir generic liste oluşturdum ve if koşulunu sağlayan elemankarı buraya attım ve try cact te kullandım                 
 
-                        Console.WriteLine(" {6}{0} {1}{3}{2}{4}{5}", "->", _filmDal.GetAll()[i].Name, _filmDal.GetAll()[i].Price + " TL", gapLenght, "         ", _categoryDal.GetAll()[_selectedCategoryNumber - 1].Name, i + 1);
+                        Console.WriteLine(" {6}{0} {1}{3}{2}{4}{5}", "->", _filmDal.GetAll()[i].Name, _filmDal.GetAll()[i].Price + " TL", gapLenght, "         ", _categoryDal.GetAll()[selectedCategoryNumber - 1].Name, i + 1);
                     }
                     i++;
                 }
@@ -220,10 +220,11 @@ namespace CinemaProject.Business.Concrete
                 return selectedFilmNumber;
             }
 
-            public List<Film> GetAll()
-            {
-                return _filmDal.GetAll();
-            }
+        }
 
+        public List<Film> GetAll()
+        {
+            return _filmDal.GetAll();
         }
     }
+}
