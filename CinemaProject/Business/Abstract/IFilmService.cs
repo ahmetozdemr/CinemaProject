@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 namespace CinemaProject.Business.Abstract
 {
     public interface IFilmService
-    {    
+    {
         void Add();
-        int GetAll();
-        int GetAllByCategoryId();
+        List<Film> GetAll();
+        int GetAllByCategoryId(int selectedCategoryNumber);
+      
     }
 }

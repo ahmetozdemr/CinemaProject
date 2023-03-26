@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CinemaProject.Business.Abstract
 {
     public interface ISeatService
-    {   
+    {
         void Add();
         List<Seat> GetAll();
         int GetAllByFilmId();

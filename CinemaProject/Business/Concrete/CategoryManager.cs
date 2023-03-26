@@ -12,17 +12,17 @@ namespace CinemaProject.Business.Concrete
     {
         public void Add()
         {
-            throw new NotImplementedException();
+
         }
 
         public List<Category> GetAll()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public int GetAllByCategoryId()
         {
-            throw new NotImplementedException();
+            return default;
         }
     }
 }

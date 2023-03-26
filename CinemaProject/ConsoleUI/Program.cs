@@ -4,6 +4,7 @@ using CinemaProject.Business;
 using CinemaProject.Business.Abstract;
 using CinemaProject.Business.Concrete;
 using CinemaProject.DataAccess;
+using CinemaProject.DataAccess.Abstract;
 using CinemaProject.DataAccess.Concrete.InMemory;
 using CinemaProject.Entities.Concrete;
 
@@ -36,6 +37,11 @@ namespace CinemaProject.ConsoleUI
                 activeUserId = userService.Login();
             }
 
+            IFilmService filmService = new FilmManager(new InMemoryFilmDal(), new InMemoryCategoryDal(), filmService.GetAllByCategoryId());
+            ISeatService seatService = new SeatManager(new InMemorySeatDal());
+            ITicketService ticketService = new TicketManager(new InMemoryTicketDal());
+
+
             var seatsCollectiveList = new List<Seats>();
             var seatsCollective = new SeatsCollective();
             seatsCollective.Show(seatsCollectiveList);
@@ -60,11 +66,14 @@ namespace CinemaProject.ConsoleUI
             //Bu kısımda operasyonları sırasıyla çalışıyor ve işlem sona erdilmediği sürece kendini tekrar ediyor
             while (true)
             {
+                int selectedCategoryNumber = filmService.GetAllInVision();
+                int selectedFilmNumber = filmService.GetAllByCategoryId();
+                int selectedSeatNumber = seatService.GetAllByFilmId();
+                ticketService.Add(userService, filmService, seatService, activeUserId, selectedSeatNumber);
+                // byte selectedCategoryNumber = filmInVision.Show(films, categories);
+                // byte selectedFilmNumber = filmlistByCategory.Show(selectedCategoryNumber, films, categories);
 
-                byte selectedCategoryNumber = filmInVision.Show(films, categories);
-                byte selectedFilmNumber = filmlistByCategory.Show(selectedCategoryNumber, films, categories);
-
-                byte selectedSeatNumber = chooseSeatNumber.Show(seatsCollectiveList[selectedFilmNumber - 1].SeatListGive());
+                // byte selectedSeatNumber = chooseSeatNumber.Show(seatsCollectiveList[selectedFilmNumber - 1].SeatListGive());
 
 
 
