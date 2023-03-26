@@ -1,6 +1,8 @@
-﻿namespace CinemaProject.Entities
+﻿using CinemaProject.Entities.Abstract;
+
+namespace CinemaProject.Entities.Concrete
 {
-    public class Film: IEntity
+    public class Film : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

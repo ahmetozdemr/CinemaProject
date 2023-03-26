@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using CinemaProject.Entities;
+using CinemaProject.Entities.Concrete;
 
 namespace CinemaProject.DataAccess
 {

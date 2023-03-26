@@ -5,7 +5,7 @@ using CinemaProject.Business.Abstract;
 using CinemaProject.Business.Concrete;
 using CinemaProject.DataAccess;
 using CinemaProject.DataAccess.Concrete.InMemory;
-using CinemaProject.Entities;
+using CinemaProject.Entities.Concrete;
 
 namespace CinemaProject.ConsoleUI
 {
@@ -39,7 +39,6 @@ namespace CinemaProject.ConsoleUI
             var seatsCollectiveList = new List<Seats>();
             var seatsCollective = new SeatsCollective();
             seatsCollective.Show(seatsCollectiveList);
-
 
             var ticketList = new List<Ticket>();
             //Data klasöründeki instancelar

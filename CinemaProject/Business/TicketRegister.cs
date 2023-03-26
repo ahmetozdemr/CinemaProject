@@ -1,10 +1,10 @@
 ﻿using CinemaProject.DataAccess;
-using CinemaProject.Entities;
 using CinemaProject.Core.Utilities;
 using System;
 using System.Linq;
 using CinemaProject.Business;
 using CinemaProject.Business.Abstract;
+using CinemaProject.Entities.Concrete;
 
 namespace CinemaProject.Business
 {

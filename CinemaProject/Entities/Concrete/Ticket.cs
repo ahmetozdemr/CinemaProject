@@ -1,8 +1,9 @@
 ﻿using System;
+using CinemaProject.Entities.Abstract;
 
-namespace CinemaProject.Entities
+namespace CinemaProject.Entities.Concrete
 {
-    public class Ticket : Customer, IEntity
+    public class Ticket : User, IEntity
     {
         public string FilmName { get; set; }
         public double FilmPrice { get; set; }

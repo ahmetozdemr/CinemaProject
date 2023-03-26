@@ -1,4 +1,4 @@
-﻿using CinemaProject.Entities;
+﻿using CinemaProject.Entities.Concrete;
 using System.Collections.Generic;
 
 namespace CinemaProject.DataAccess

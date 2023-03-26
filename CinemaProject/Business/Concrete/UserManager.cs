@@ -2,7 +2,7 @@
 using CinemaProject.Business.ValidationRules;
 using CinemaProject.Core.Utilities.Trivia;
 using CinemaProject.DataAccess.Abstract;
-using CinemaProject.Entities;
+using CinemaProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
