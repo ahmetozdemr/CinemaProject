@@ -1,5 +1,5 @@
-﻿using CinemaProject.Data;
-using CinemaProject.Entity;
+﻿using CinemaProject.DataAccess;
+using CinemaProject.Entities;
 using CinemaProject.Trivia;
 using System;
 using System.Linq;

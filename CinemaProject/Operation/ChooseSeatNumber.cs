@@ -1,4 +1,4 @@
-﻿using CinemaProject.Entity;
+﻿using CinemaProject.Entities;
 using CinemaProject.Trivia;
 using System;
 using System.Collections.Generic;

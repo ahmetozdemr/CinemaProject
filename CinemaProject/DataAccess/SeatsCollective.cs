@@ -1,11 +1,11 @@
-﻿using CinemaProject.Entity;
+﻿using CinemaProject.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaProject.Data
+namespace CinemaProject.DataAccess
 {
     public class SeatsCollective: IData
     {

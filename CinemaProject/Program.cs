@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using CinemaProject.Data;
-using CinemaProject.Entity;
+using CinemaProject.DataAccess;
+using CinemaProject.Entities;
 using CinemaProject.Operation;
 using CinemaProject.Trivia;
 

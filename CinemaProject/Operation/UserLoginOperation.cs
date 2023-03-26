@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CinemaProject.Data;
-using CinemaProject.Entity;
+using CinemaProject.DataAccess;
+using CinemaProject.Entities;
 
 namespace CinemaProject.Operation
 {

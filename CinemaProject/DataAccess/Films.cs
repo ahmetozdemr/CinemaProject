@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using CinemaProject.Entity;
+using CinemaProject.Entities;
 
-namespace CinemaProject.Data
+namespace CinemaProject.DataAccess
 {
     public class Films: IData
     {

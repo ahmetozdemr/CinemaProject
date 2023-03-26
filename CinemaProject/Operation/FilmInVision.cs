@@ -1,4 +1,4 @@
-﻿using CinemaProject.Data;
+﻿using CinemaProject.DataAccess;
 using System;
 using CinemaProject.Trivia;
 

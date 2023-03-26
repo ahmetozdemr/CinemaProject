@@ -1,7 +1,7 @@
-﻿using CinemaProject.Entity;
+﻿using CinemaProject.Entities;
 using System.Collections.Generic;
 
-namespace CinemaProject.Data
+namespace CinemaProject.DataAccess
 {
     public class Categories: IData
     {
