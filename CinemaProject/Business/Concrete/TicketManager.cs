@@ -20,14 +20,14 @@ namespace CinemaProject.Business.Concrete
         int _activeUserId;
         int _selectedSeatNumber;
 
-        public TicketManager(ITicketDal ticketDal, IUserService userService, IFilmService filmService, ISeatService seatService,int activeUserId,int selectedSeatNumber)
+        public TicketManager(ITicketDal ticketDal, IUserService userService, IFilmService filmService, ISeatService seatService, int activeUserId, int selectedSeatNumber)
         {
             _ticketDal = ticketDal;
             _userService = userService;
             _filmService = filmService;
             _seatService = seatService;
-            _activeUserId= activeUserId;
-            _selectedSeatNumber = selectedSeatNumber;   
+            _activeUserId = activeUserId;
+            _selectedSeatNumber = selectedSeatNumber;
         }
         public void Add()
         {
@@ -36,17 +36,67 @@ namespace CinemaProject.Business.Concrete
                 Id = _userService.GetAll()[_activeUserId - 1].Id,
                 FirstName = _userService.GetAll()[_activeUserId - 1].FirstName,
                 LastName = _userService.GetAll()[_activeUserId - 1].LastName,
-                FilmName = _filmService.GetAll[selectedFilmNumber - 1].Name,
-                FilmPrice = _filmService.GetAll[selectedFilmNumber - 1].Price,
+                FilmName = _filmService.GetAll()[_selectedSeatNumber - 1].Name,
+                FilmPrice = _filmService.GetAll()[_selectedSeatNumber - 1].Price,
                 DateTime = DateTime.Now,
-                SeatNo = _seatService.GetAll[selectedSeatNumber - 1].Id
+                SeatNo = _seatService.GetAll()[_selectedSeatNumber - 1].Id
             });
             Console.Clear();
         }
 
-        public List<Ticket> GetAll()
+        public int GetAll()
         {
-            throw new NotImplementedException();
+            foreach (var item in _ticketDal.GetAll())
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\t==========CİNEMA BİLETİ==========");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Bilet No :{0}", item.Id);
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\tAd :{0}", item.FirstName);
+                Console.WriteLine("\tSoyad :{0}", item.LastName);
+                Console.WriteLine("\tFilm Adı :{0}", item.FilmName);
+                Console.WriteLine("\tKoltuk Numarası:{0}", item.SeatNo);
+                Console.WriteLine("\tBilet Fİyatı:{0} TL", item.FilmPrice);
+                Console.WriteLine("\tAlınma Tarihi:{0}", item.DateTime);
+                Console.WriteLine("\t=================================");
+                Console.WriteLine("");
+                Console.ResetColor();
+            }
+
+            int response = 0;
+            bool a = true;
+            while (a)
+            {
+                try
+                {
+                    Console.Write("Yeni bilet almak için");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(" (1)");
+                    Console.ResetColor();
+                    Console.WriteLine(" sayısını tuşlayınız");
+
+                    Console.Write("İşlemi sonlandırmak için");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(" (2)");
+                    Console.ResetColor();
+                    Console.WriteLine(" sayısını tuşlayınız");
+                    response = byte.Parse(Console.ReadLine());
+
+                    a = response == 1 || response == 2 ? false : true;
+                }
+                catch
+                {
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
+                    Console.ResetColor();
+                    a = true;
+                }
+            }
+            Console.Clear();
+            return response;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CinemaProject.Business.Abstract;
+using CinemaProject.DataAccess.Abstract;
 using CinemaProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,20 @@ namespace CinemaProject.Business.Concrete
 {
     public class SeatManager : ISeatService
     {
+        ISeatDal _seatDal;
+        public SeatManager(ISeatDal seatDal)
+        {
+            _seatDal = seatDal;
+        }
+
         public void Add()
         {
-            throw new NotImplementedException();
+            
         }
 
         public List<Seat> GetAll()
         {
-            throw new NotImplementedException();
+            return _seatDal.GetAll();
         }
     }
 }

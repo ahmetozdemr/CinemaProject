@@ -10,6 +10,6 @@ namespace CinemaProject.Business.Abstract
     public interface ITicketService
     {
         void Add();
-        List<Ticket> GetAll();
+        int GetAll();
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CinemaProject.DataAccess.Concrete.InMemory
 {
-    public class InMemoryUserDal: IUserDal
+    public class InMemoryUserDal : IUserDal
     {
         List<User> _users;
         public InMemoryUserDal()
@@ -23,14 +23,13 @@ namespace CinemaProject.DataAccess.Concrete.InMemory
         {
             _users.Add(user);
         }
-
-        public void Update(User user)
-        {
-           
-        }
         public List<User> GetAll()
         {
             return _users;
+        }
+        public void Update(User user)
+        {
+
         }
     }
 }
