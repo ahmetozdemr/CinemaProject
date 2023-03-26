@@ -1,4 +1,5 @@
 ﻿using CinemaProject.Core.Utilities.Trivia;
+using CinemaProject.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,14 @@ namespace CinemaProject.Business
     public class UserRegisterOperation
     {
 
-        public void UserAdd()
+        public void Add(List<User> users)
         {
-            string firstName = null;
-            string lastName = null;
-            bool checkGap = true;
-            bool checkWrong = true;
+            string firstName = default;
+            string lastName = default;
+            string userName = default;
+            string password = default;
+            bool checkGap = default;
+            bool checkWrong = default;
             while (checkGap)
             {
                 try
@@ -75,7 +78,10 @@ namespace CinemaProject.Business
                     checkGap = true;
                 }
             }
-            
+
+
+            users.Add(new User() { Id = users.Count + 1, FirstName = firstName, LastName = lastName, UserName = userName, Password = password });
+            Console.WriteLine("Tebrikler Başarıyla Kaydoldunuz");
         }
     }
 }
