@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaProject.Business.Abstract
+namespace CinemaProject.DataAccess.Abstract
 {
-    public interface IUserService
+    public interface IUserDal
     {
-        void Add();
-        int Login();
+        void Add(User user);
+        void Update(User user);
     }
 }

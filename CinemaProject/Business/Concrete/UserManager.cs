@@ -12,7 +12,12 @@ namespace CinemaProject.Business.Concrete
 {
     public class UserManager : IUserService
     {
-        public void Add(List<User> users)
+        IUserDal _userDal;
+        public UserManager(IUserDal userDal)
+        {
+            _userDal = userDal;
+        }
+        public void Add()
         {
             string firstName = null;
             string lastName = null;
@@ -49,10 +54,10 @@ namespace CinemaProject.Business.Concrete
                 }
             }
 
-            users.Add(new User() { Id = users.Count + 1, FirstName = firstName, LastName = lastName, UserName = userName, Password = password });
+            _userDal.Add(new User() { Id = _userDal.GetAll().Count + 1, FirstName = firstName, LastName = lastName, UserName = userName, Password = password });
         }
 
-        public void Login(List<User> users)
+        public int Login()
         {
             bool checkLogin = true;
             int activeUserId = 0;
@@ -64,7 +69,7 @@ namespace CinemaProject.Business.Concrete
                 Console.Write("Şifre :");
                 string passwrd = Console.ReadLine();
 
-                foreach (var item in users)
+                foreach (var item in _userDal.GetAll())
                 {
                     if (usernm == item.UserName && passwrd == item.Password)
                     {
@@ -80,7 +85,7 @@ namespace CinemaProject.Business.Concrete
             }
             Console.Clear();
 
-            // return activeUserId;
+            return activeUserId;
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using CinemaProject.Business;
-using CinemaProject.Business.ValidationRules;
+using CinemaProject.Business.Concrete;
 using CinemaProject.DataAccess;
+using CinemaProject.DataAccess.Concrete.InMemory;
 using CinemaProject.Entities;
 
 namespace CinemaProject.ConsoleUI
@@ -12,37 +12,64 @@ namespace CinemaProject.ConsoleUI
     {
         static void Main(string[] args)
         {
-            Start();
+
+
+            //UserManager userManager = new UserManager(new InMemoryUserDal());
+
+            //userManager.Add(new User() { Id = 5, FirstName = "Nesrin", LastName = "Özdemir", UserName = "nesrin", Password = "1234" });
+
+            //foreach (var item in userManager.GetAll())
+            //{
+            //    Console.WriteLine(item.Id + " " + item.FirstName);
+            //}
+
+            //Start();
             Console.ReadKey();
         }
 
         private static void Start()
         {
-            List<User> users = new List<User>();
-            UserData userData = new UserData(users);
-            UserLoginOperation userLogin = new UserLoginOperation();
 
-
+            UserManager userManager = new UserManager(new InMemoryUserDal());
 
             Console.WriteLine("1 Kayıt Ol");
             Console.WriteLine("2 Giriş Yap");
             short num = Int16.Parse(Console.ReadLine());
-            UserRegisterOperation userRegisterOperation;
-            UserLoginOperation userLoginOperation;
             int activeUserId = default;
             if (num == 1)
             {
-                userRegisterOperation = new UserRegisterOperation();
-                userRegisterOperation.Add(users);
-
-                activeUserId = userLogin.Login(userData.UserDataGet());
-                userLoginOperation = new UserLoginOperation();
+                userManager.Add();
+                activeUserId = userManager.Login();
             }
             else
             {
-                activeUserId = userLogin.Login(userData.UserDataGet());
-                userLoginOperation = new UserLoginOperation();
+                activeUserId = userManager.Login();
             }
+
+
+            //List<User> users = new List<User>();
+            //UserData userData = new UserData(users);
+            //UserLoginOperation userLogin = new UserLoginOperation();
+
+            //Console.WriteLine("1 Kayıt Ol");
+            //Console.WriteLine("2 Giriş Yap");
+            //short num = Int16.Parse(Console.ReadLine());
+            //UserRegisterOperation userRegisterOperation;
+            //UserLoginOperation userLoginOperation;
+            //int activeUserId = default;
+            //if (num == 1)
+            //{
+            //    userRegisterOperation = new UserRegisterOperation();
+            //    userRegisterOperation.Add(users);
+
+            //    activeUserId = userLogin.Login(userData.UserDataGet());
+
+            //}
+            //else
+            //{
+            //    activeUserId = userLogin.Login(userData.UserDataGet());
+
+            //}
 
 
 
