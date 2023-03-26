@@ -11,5 +11,6 @@ namespace CinemaProject.Business.Abstract
     {
         void Add();
         int Login();
+        List<User> GetAll();
     }
 }

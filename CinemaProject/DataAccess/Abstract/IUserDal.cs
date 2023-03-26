@@ -11,5 +11,6 @@ namespace CinemaProject.DataAccess.Abstract
     {
         void Add(User user);
         void Update(User user);
+        List<User> GetAll();
     }
 }

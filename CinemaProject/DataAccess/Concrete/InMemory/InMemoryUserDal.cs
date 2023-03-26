@@ -2,13 +2,10 @@
 using CinemaProject.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaProject.DataAccess.Concrete.InMemory
 {
-    public class InMemoryUserDal: Abstract.IUserDal
+    public class InMemoryUserDal: IUserDal
     {
         List<User> _users;
         public InMemoryUserDal()
@@ -30,6 +27,10 @@ namespace CinemaProject.DataAccess.Concrete.InMemory
         public void Update(User user)
         {
            
+        }
+        public List<User> GetAll()
+        {
+            return _users;
         }
     }
 }

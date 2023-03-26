@@ -1,6 +1,7 @@
 ﻿using CinemaProject.Business.Abstract;
 using CinemaProject.Business.ValidationRules;
 using CinemaProject.Core.Utilities.Trivia;
+using CinemaProject.DataAccess.Abstract;
 using CinemaProject.Entities;
 using System;
 using System.Collections.Generic;
@@ -86,6 +87,10 @@ namespace CinemaProject.Business.Concrete
             Console.Clear();
 
             return activeUserId;
+        }
+        public List<User> GetAll()
+        {
+            return _userDal.GetAll();
         }
     }
 }

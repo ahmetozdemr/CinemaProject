@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="InMemoryUserDal.cs" />
+    <Compile Remove="IUserDal.cs" />
     <Compile Remove="UserManager.cs" />
   </ItemGroup>
 

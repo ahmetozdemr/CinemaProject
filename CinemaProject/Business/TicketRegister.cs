@@ -4,16 +4,17 @@ using CinemaProject.Core.Utilities;
 using System;
 using System.Linq;
 using CinemaProject.Business;
+using CinemaProject.Business.Abstract;
 
 namespace CinemaProject.Business
 {
     public class TicketRegister : IOperation
     {
-        public void Add(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket, Tickets tickets, ref int ticketId, int activeUserId, UserData userData)
+        public void Add(byte selectedSeatNumber, byte selectedFilmNumber, Films films, Seats seats, Ticket ticket, Tickets tickets, ref int ticketId, int activeUserId, IUserService userService)
         {
-            ticket.Id = userData.UserDataGet()[activeUserId - 1].Id;
-            ticket.FirstName = userData.UserDataGet()[activeUserId - 1].FirstName;
-            ticket.LastName = userData.UserDataGet()[activeUserId - 1].LastName;
+            ticket.Id = userService.GetAll()[activeUserId - 1].Id;
+            ticket.FirstName = userService.GetAll()[activeUserId - 1].FirstName;
+            ticket.LastName = userService.GetAll()[activeUserId - 1].LastName;
             ticket.FilmName = films.filmList[selectedFilmNumber - 1].Name;
             ticket.FilmPrice = films.filmList[selectedFilmNumber - 1].Price;
             ticket.DateTime = DateTime.Now;
