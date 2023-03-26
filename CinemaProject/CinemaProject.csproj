@@ -8,6 +8,7 @@
   <ItemGroup>
     <Compile Remove="Business\UserLoginOperation.cs" />
     <Compile Remove="Business\UserRegisterOperation.cs" />
+    <Compile Remove="DataAccess\UserData.cs" />
     <Compile Remove="InMemoryUserDal.cs" />
     <Compile Remove="IUserDal.cs" />
     <Compile Remove="UserManager.cs" />
