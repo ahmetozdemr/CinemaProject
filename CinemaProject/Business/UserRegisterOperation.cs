@@ -2,9 +2,6 @@
 using CinemaProject.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaProject.Business
 {
@@ -17,24 +14,31 @@ namespace CinemaProject.Business
             string lastName = default;
             string userName = default;
             string password = default;
-            bool checkGap = default;
-            bool checkWrong = default;
-            while (checkGap)
+            bool checkValidation = default;
+            bool checkTextGap = default;
+            while (checkValidation)
             {
                 try
                 {
                     Console.ResetColor();
                     Stars.Show(45);
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("Lütfen Adınızı Giriniz :");
+                    Console.Write("Lütfen Adınızı Giriniz :");
                     firstName = Console.ReadLine();
-                    Console.WriteLine("Lütfen Soyadınız Giriniz :");
+                    Console.Write("Lütfen Soyadınız Giriniz :");
                     lastName = Console.ReadLine();
+                    Console.Write("Lütfen bir kullanıcı adı oluşturunuz :");
+                    userName = Console.ReadLine();
+                    Console.Write("Lütfen bir kullanıcı şifresi oluşturunuz :");
+                    password = Console.ReadLine();
 
                     //Bu kısımda name ve surName değişkenlerinin boş,null ya da sadece boşluktan oluşup oluşmadığını kontrol ediyor.
                     //Tüm kuralları sağlıyorsa while döngüsünden çıkıyor
-                    //Burdaki y değişkeni if ten sonra bir hata oluşursa hata çıktısı verirsin diye konuldu
-                    if (!String.IsNullOrEmpty(firstName) && !String.IsNullOrEmpty(lastName))
+
+                    if (!String.IsNullOrEmpty(firstName) &&
+                        !String.IsNullOrEmpty(lastName) &&
+                        !String.IsNullOrEmpty(userName) &&
+                        !String.IsNullOrEmpty(password))
                     {
                         foreach (var item1 in firstName)
                         {
@@ -44,27 +48,41 @@ namespace CinemaProject.Business
                                 {
                                     if (item2 != ' ')
                                     {
-                                        checkGap = !checkGap;
-                                        checkWrong = true;
+                                        foreach (var item3 in userName)
+                                        {
+                                            if (item3 != ' ')
+                                            {
+                                                foreach (var item4 in password)
+                                                {
+                                                    if (item4 != ' ')
+                                                    {
+                                                        checkValidation = !checkValidation;
+                                                        checkTextGap = true;
+                                                    }
+                                                }
+                                                checkTextGap = !checkTextGap;
+                                            }
+                                        }
+                                        checkTextGap = !checkTextGap;
                                     }
                                 }
-                                checkWrong = !checkWrong;
+                                checkTextGap = !checkTextGap;
                             }
-                            checkWrong = !checkWrong;
+                            checkTextGap = !checkTextGap;
                         }
-                        checkWrong = !checkWrong;
+                        checkTextGap = !checkTextGap;
                     }
                     else
                     {
-                        checkGap = true;
+                        checkValidation = true;
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Lütfen gerekli yerleri doldurunuz");
+                        Console.WriteLine("Lütfen boş bırakmayınız");
                         Console.ResetColor();
                     }
-                    if (!checkWrong)
+                    if (!checkTextGap)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Lütfen gerekli yerleri doldurunuz");
+                        Console.WriteLine("Lütfen gerekli yerleri sadece boşluk yazarak bırakmayınız");
                         Console.ResetColor();
                     }
 
@@ -75,10 +93,9 @@ namespace CinemaProject.Business
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
                     Console.ResetColor();
-                    checkGap = true;
+                    checkValidation = true;
                 }
             }
-
 
             users.Add(new User() { Id = users.Count + 1, FirstName = firstName, LastName = lastName, UserName = userName, Password = password });
             Console.WriteLine("Tebrikler Başarıyla Kaydoldunuz");
