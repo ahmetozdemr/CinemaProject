@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace CinemaProject.Business.Abstract
 {
     public interface IFilmService
-    {
+    {    
+        void Add();
         List<Film> GetAll();
     }
 }

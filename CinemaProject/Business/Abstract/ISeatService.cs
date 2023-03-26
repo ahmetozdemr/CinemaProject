@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace CinemaProject.Business.Abstract
 {
     public interface ISeatService
-    {
-        List<Seat> GetAll();
+    {   
         void Add();
+        List<Seat> GetAll();
     }
 }
