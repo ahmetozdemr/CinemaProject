@@ -6,12 +6,12 @@ namespace CinemaProject.DataAccess
 {
     public class UserData
     {
-        private List<User> _users;
+        List<User> _users;
         public UserData(List<User> users)
         {
             _users = users;
         }
-        public List<User> Users{ get => _users;}
+        public List<User> Users { get => _users; }
 
         public List<User> UserDataGet()
         {
