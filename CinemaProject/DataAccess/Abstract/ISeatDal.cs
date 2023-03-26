@@ -9,7 +9,8 @@ namespace CinemaProject.DataAccess.Abstract
 {
     public interface ISeatDal
     {
-        List<Seat> GetAll();
-        void Add(Seat seat);
+        //List<Seat> GetAll();
+        //void Add(Seat seat);
+        List<List<Seat>> GetAllInRoom();
     }
 }

@@ -23,9 +23,9 @@ namespace CinemaProject.Business.Concrete
 
         }
 
-        public List<Seat> GetAll()
+        public List<List<Seat>> GetAll()
         {
-            return _seatDal.GetAll();
+            return _seatDal.GetAllInRoom();
         }
 
         public int GetAllByFilmId()

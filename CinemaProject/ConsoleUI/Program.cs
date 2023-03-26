@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using CinemaProject.Business;
 using CinemaProject.Business.Abstract;
 using CinemaProject.Business.Concrete;
-using CinemaProject.DataAccess;
-using CinemaProject.DataAccess.Abstract;
 using CinemaProject.DataAccess.Concrete.InMemory;
-using CinemaProject.Entities.Concrete;
 
 namespace CinemaProject.ConsoleUI
 {
@@ -18,7 +13,6 @@ namespace CinemaProject.ConsoleUI
             Start();
             Console.ReadKey();
         }
-
         private static void Start()
         {
             IUserService userService = new UserManager(new InMemoryUserDal());

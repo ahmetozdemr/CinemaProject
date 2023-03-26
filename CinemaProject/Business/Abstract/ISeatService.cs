@@ -10,7 +10,8 @@ namespace CinemaProject.Business.Abstract
     public interface ISeatService
     {
         void Add();
-        List<Seat> GetAll();
+        // List<Seat> GetAll();
+        List<List<Seat>> GetAll();
         int GetAllByFilmId();
     }
 }

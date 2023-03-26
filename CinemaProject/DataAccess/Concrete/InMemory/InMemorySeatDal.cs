@@ -1,4 +1,5 @@
-﻿using CinemaProject.DataAccess.Abstract;
+﻿using CinemaProject.Core.Utilities.Trivia;
+using CinemaProject.DataAccess.Abstract;
 using CinemaProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace CinemaProject.DataAccess.Concrete.InMemory
     public class InMemorySeatDal : ISeatDal
     {
         List<Seat> _seats;
+        List<List<Seat>> _seatInRoom;
         public InMemorySeatDal()
         {
             _seats = new List<Seat>();
@@ -18,16 +20,37 @@ namespace CinemaProject.DataAccess.Concrete.InMemory
             {
                 _seats.Add(new Seat() { Id = i, CheckFill = true });
             }
+
+            _seatInRoom = new List<List<Seat>>()
+            {
+                 _seats,
+                 _seats,
+                 _seats,
+                 _seats,
+                 _seats,
+                 _seats,
+                 _seats,
+                 _seats,
+                 _seats,
+                 _seats,
+                 _seats,
+                 _seats,
+            };
         }
 
-        public void Add(Seat seat)
-        {
-            _seats.Add(seat);
-        }
+        //public void Add(Seat seat)
+        //{
+        //    _seats.Add(seat);
+        //}
 
-        public List<Seat> GetAll()
+        //public List<Seat> GetAll()
+        //{
+        //    return _seats;
+        //}
+        public List<List<Seat>> GetAllInRoom()
         {
-            return _seats;
+
+            return _seatInRoom;
         }
     }
 }
