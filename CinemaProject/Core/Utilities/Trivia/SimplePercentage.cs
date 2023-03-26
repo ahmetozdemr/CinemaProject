@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace CinemaProject.Trivia
+namespace CinemaProject.Core.Utilities.Trivia
 {
     public static class SimplePercentage
     {

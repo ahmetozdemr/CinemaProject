@@ -1,12 +1,12 @@
-﻿using CinemaProject.DataAccess;
+﻿using CinemaProject.Core.Utilities.Trivia;
+using CinemaProject.DataAccess;
 using CinemaProject.Entities;
-using CinemaProject.Trivia;
 using System;
 using System.Collections.Generic;
 
-namespace CinemaProject.Operation
+namespace CinemaProject.Business
 {
-    public class FilmlistByCategory: IOperation
+    public class FilmlistByCategory : IOperation
     {
         public byte Show(byte selectedCategoryNumber, Films films, Categories categories)
         {
@@ -75,14 +75,15 @@ namespace CinemaProject.Operation
                         }
                         else
                         {
-                            if(y) {
+                            if (y)
+                            {
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Lütfen geçerli bir değer tuşlayınız");
                                 Console.ResetColor();
-                                y= false; //Burda bool y kullanmamın sebebi her defasında birden fazla geçerli değildir yazısını yazdırmaması içindir.
+                                y = false; //Burda bool y kullanmamın sebebi her defasında birden fazla geçerli değildir yazısını yazdırmaması içindir.
                             }
 
-                            x = true;                           
+                            x = true;
                         }
                     }
 

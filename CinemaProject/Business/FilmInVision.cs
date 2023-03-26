@@ -1,10 +1,10 @@
 ﻿using CinemaProject.DataAccess;
 using System;
-using CinemaProject.Trivia;
+using CinemaProject.Core.Utilities.Trivia;
 
-namespace CinemaProject.Operation
+namespace CinemaProject.Business
 {
-    public class FilmInVision: IOperation
+    public class FilmInVision : IOperation
     {
         public byte Show(Films filmList, Categories categoryList)
         {

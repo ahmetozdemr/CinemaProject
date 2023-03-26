@@ -1,10 +1,11 @@
 ﻿using CinemaProject.DataAccess;
 using CinemaProject.Entities;
-using CinemaProject.Trivia;
+using CinemaProject.Core.Utilities;
 using System;
 using System.Linq;
+using CinemaProject.Business;
 
-namespace CinemaProject.Operation
+namespace CinemaProject.Business
 {
     public class TicketRegister : IOperation
     {

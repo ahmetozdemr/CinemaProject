@@ -1,10 +1,10 @@
-﻿using CinemaProject.Entities;
-using CinemaProject.Trivia;
+﻿using CinemaProject.Core.Utilities.Trivia;
+using CinemaProject.Entities;
 using System;
 using System.Collections.Generic;
 
 
-namespace CinemaProject.Operation
+namespace CinemaProject.Business
 {
     public class ChooseSeatNumber : IOperation
     {

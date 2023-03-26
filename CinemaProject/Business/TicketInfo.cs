@@ -1,15 +1,15 @@
 ﻿using CinemaProject.DataAccess;
 using CinemaProject.Entities;
-using CinemaProject.Trivia;
+using CinemaProject.Core.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaProject.Operation
+namespace CinemaProject.Business
 {
-    public class TicketInfo: IOperation
+    public class TicketInfo : IOperation
     {
         public byte Show(Tickets tickets)
         {
@@ -31,7 +31,7 @@ namespace CinemaProject.Operation
                 Console.WriteLine("");
                 Console.ResetColor();
             }
-           
+
             byte response = 0;
             bool a = true;
             while (a)
@@ -51,7 +51,7 @@ namespace CinemaProject.Operation
                     Console.WriteLine(" sayısını tuşlayınız");
                     response = byte.Parse(Console.ReadLine());
 
-                    a = (response == 1) || (response == 2) ? false : true;
+                    a = response == 1 || response == 2 ? false : true;
                 }
                 catch
                 {

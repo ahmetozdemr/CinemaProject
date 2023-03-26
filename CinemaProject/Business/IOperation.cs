@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaProject.Operation
+namespace CinemaProject.Business
 {
     public interface IOperation
     {

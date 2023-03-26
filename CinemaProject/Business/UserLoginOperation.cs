@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CinemaProject.DataAccess;
 using CinemaProject.Entities;
 
-namespace CinemaProject.Operation
+namespace CinemaProject.Business
 {
     public class UserLoginOperation
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CinemaProject.Trivia
+namespace CinemaProject.Core.Utilities.Trivia
 {
     public static class Stars
     {
