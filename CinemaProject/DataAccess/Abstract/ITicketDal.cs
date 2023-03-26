@@ -11,6 +11,5 @@ namespace CinemaProject.DataAccess.Abstract
     {
         List<Ticket> GetAll();
         void Add(Ticket ticket);
-
     }
 }

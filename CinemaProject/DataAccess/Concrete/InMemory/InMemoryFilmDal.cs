@@ -30,5 +30,15 @@ namespace CinemaProject.DataAccess.Concrete.InMemory
             new Film() {Id = 12,Name = "Gladyatör",CategoryId = 4,Price = 60},
             };
         }
+
+        public void Add(Film film)
+        {
+            _films.Add(film);
+        }
+
+        public List<Film> GetAll()
+        {
+            return _films;
+        }
     }
 }
