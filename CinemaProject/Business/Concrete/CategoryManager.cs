@@ -19,5 +19,10 @@ namespace CinemaProject.Business.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public int GetAllByCategoryId()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

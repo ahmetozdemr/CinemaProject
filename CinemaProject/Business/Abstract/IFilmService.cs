@@ -10,6 +10,7 @@ namespace CinemaProject.Business.Abstract
     public interface IFilmService
     {    
         void Add();
-        List<Film> GetAll();
+        int GetAll();
+        int GetAllByCategoryId();
     }
 }
