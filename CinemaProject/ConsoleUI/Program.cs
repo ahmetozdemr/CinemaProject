@@ -62,8 +62,8 @@ namespace CinemaProject.ConsoleUI
             {
                 int selectedCategoryNumber = filmService.GetAllInVision();
                 int selectedFilmNumber = filmService.GetAllByCategoryId(selectedCategoryNumber);
-                int selectedSeatNumber = seatService.GetAllByFilmId();
-                ticketService.Add(userService, filmService, seatService, activeUserId, selectedSeatNumber);
+                int selectedSeatNumber = seatService.GetAllByFilmId(selectedFilmNumber);
+                ticketService.Add(userService, filmService, seatService, activeUserId, selectedSeatNumber, selectedFilmNumber);
                 // byte selectedCategoryNumber = filmInVision.Show(films, categories);
                 // byte selectedFilmNumber = filmlistByCategory.Show(selectedCategoryNumber, films, categories);
 

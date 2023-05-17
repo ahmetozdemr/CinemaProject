@@ -12,7 +12,7 @@ namespace CinemaProject.Business.Concrete
 {
     public class SeatManager : ISeatService
     {
-        ISeatDal _seatDal;
+        public ISeatDal _seatDal;
         public SeatManager(ISeatDal seatDal)
         {
             _seatDal = seatDal;
@@ -28,7 +28,7 @@ namespace CinemaProject.Business.Concrete
             return _seatDal.GetAllInRoom();
         }
 
-        public int GetAllByFilmId()
+        public int GetAllByFilmId(int selectedFilmNumber)
         {
             int r = 0;
             for (int i = 0; i < 3; i++)
@@ -37,14 +37,14 @@ namespace CinemaProject.Business.Concrete
                 for (int j = 0; j < 4; j++)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    if (_seatDal.GetAll()[r].CheckFill == true)
+                    if (_seatDal.GetAllInRoom()[selectedFilmNumber][r].CheckFill == true)
                     {
-                        Console.Write("*Koltuk {0}\t", _seatDal.GetAll()[r].Id);
+                        Console.Write("*Koltuk {0}\t", _seatDal.GetAllInRoom()[selectedFilmNumber][r].Id);
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("*Satıldı {0}\t", _seatDal.GetAll()[r].Id);
+                        Console.Write("*Satıldı {0}\t", _seatDal.GetAllInRoom()[selectedFilmNumber][r].Id);
                     }
                     r++;
                 }
@@ -64,7 +64,7 @@ namespace CinemaProject.Business.Concrete
                     selectedSeatNumber = byte.Parse(Console.ReadLine());
                     if (selectedSeatNumber < 13 && selectedSeatNumber > 0)
                     {
-                        _seatDal.GetAll()[selectedSeatNumber - 1].CheckFill = false;
+                        _seatDal.GetAllInRoom()[selectedFilmNumber][selectedSeatNumber - 1].CheckFill = false;
                         checkSelectedNumber = !checkSelectedNumber;
                     }
                     else

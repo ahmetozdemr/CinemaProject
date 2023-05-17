@@ -9,7 +9,7 @@ namespace CinemaProject.Business.Abstract
 {
     public interface ITicketService
     {
-        void Add(IUserService userService, IFilmService filmService, ISeatService seatService, int activeUserId, int selectedSeatNumber);
+        void Add(IUserService userService, IFilmService filmService, ISeatService seatService, int activeUserId, int selectedSeatNumber, int selectedFilmNumber);
         int GetAll();
     }
 }

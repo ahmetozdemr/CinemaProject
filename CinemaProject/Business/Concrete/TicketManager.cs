@@ -20,7 +20,7 @@ namespace CinemaProject.Business.Concrete
             _ticketDal = ticketDal;
 
         }
-        public void Add(IUserService userService, IFilmService filmService, ISeatService seatService, int activeUserId, int selectedSeatNumber)
+        public void Add(IUserService userService, IFilmService filmService, ISeatService seatService, int activeUserId, int selectedSeatNumber,int selectedFilmNumber)
         {
             _ticketDal.Add(new Ticket()
             {
@@ -30,7 +30,7 @@ namespace CinemaProject.Business.Concrete
                 FilmName = filmService.GetAll()[selectedSeatNumber - 1].Name,
                 FilmPrice = filmService.GetAll()[selectedSeatNumber - 1].Price,
                 DateTime = DateTime.Now,
-                SeatNo = seatService.GetAll()[selectedSeatNumber - 1].Id
+                SeatNo = seatService.GetAll()[selectedFilmNumber-1][selectedSeatNumber - 1].Id
             });
             Console.Clear();
         }

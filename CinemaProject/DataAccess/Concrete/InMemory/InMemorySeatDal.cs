@@ -16,7 +16,7 @@ namespace CinemaProject.DataAccess.Concrete.InMemory
         public InMemorySeatDal()
         {
             _seats = new List<Seat>();
-            for (short i = 1; i < 13; i++)
+            for (int i = 1; i < 13; i++)
             {
                 _seats.Add(new Seat() { Id = i, CheckFill = true });
             }
@@ -49,6 +49,7 @@ namespace CinemaProject.DataAccess.Concrete.InMemory
         //}
         public List<List<Seat>> GetAllInRoom()
         {
+            var result = _seatInRoom[1][1].Id;
 
             return _seatInRoom;
         }

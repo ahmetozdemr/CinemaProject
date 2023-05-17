@@ -12,6 +12,6 @@ namespace CinemaProject.Business.Abstract
         void Add();
         // List<Seat> GetAll();
         List<List<Seat>> GetAll();
-        int GetAllByFilmId();
+        int GetAllByFilmId(int filmId);
     }
 }
