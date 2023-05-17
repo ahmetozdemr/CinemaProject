@@ -1,6 +1,6 @@
 ﻿using CinemaProject.Business.Abstract;
+using CinemaProject.Business.Utilities.Trivia;
 using CinemaProject.Business.ValidationRules;
-using CinemaProject.Core.Utilities.Trivia;
 using CinemaProject.DataAccess.Abstract;
 using CinemaProject.Entities.Concrete;
 using System;

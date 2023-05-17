@@ -1,5 +1,4 @@
 ﻿using CinemaProject.Business.Abstract;
-using CinemaProject.Core.Utilities.Trivia;
 using CinemaProject.DataAccess;
 using CinemaProject.DataAccess.Abstract;
 using CinemaProject.Entities.Concrete;

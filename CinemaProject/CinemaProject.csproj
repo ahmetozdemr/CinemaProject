@@ -26,4 +26,8 @@
     <Compile Remove="UserManager.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Core\" />
+  </ItemGroup>
+
 </Project>
