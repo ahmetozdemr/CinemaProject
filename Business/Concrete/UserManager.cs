@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Business.Utilities.Exception;
 
 namespace CinemaProject.Business.Concrete
 {
@@ -32,21 +33,40 @@ namespace CinemaProject.Business.Concrete
                 {
                     Console.ResetColor();
                     Stars.Show(45);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Lütfen İşlemleri Sırayla yapınız");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write("Lütfen Adınızı Giriniz :");
+                    Console.Write("Ad :");
                     firstName = Console.ReadLine();
-                    Console.Write("Lütfen Soyadınız Giriniz :");
+                    Console.Write("Soyad :");
                     lastName = Console.ReadLine();
-                    Console.Write("Lütfen bir kullanıcı adı oluşturunuz :");
+                    Console.Write("Kullanıcı adı :");
                     userName = Console.ReadLine();
-                    Console.Write("Lütfen bir kullanıcı şifresi oluşturunuz :");
+                    Console.Write("Şifre :");
                     password = Console.ReadLine();
 
-                    string message = (result = !UserValidator.checktValidation(firstName, lastName, userName, password)) ? "Lütfen boş ya da eksik bırakmayınız" : "Tebrikler Başarıyla Kaydoldunuz";
-                    Console.WriteLine(message);
+                    CheckUserNameSame(userName);
+                    UserValidator.checktValidation(firstName, lastName, userName, password);
 
+                    Console.WriteLine("Tebrikler Başarıyla Kaydoldunuz");
+                    result= false;
+                    Console.ResetColor();
                 }
-                catch
+                catch (UserNameException userNameException)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(userNameException.Message);
+                    Console.ResetColor();
+                    result = true;
+                }
+                catch (UserValidatorException userValidatorException)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(userValidatorException.Message);
+                    Console.ResetColor();
+                    result = true;
+                }
+                catch (Exception e)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Lütfen geçerli bir işlem tuşlayınız !!!");
@@ -54,8 +74,8 @@ namespace CinemaProject.Business.Concrete
                     result = true;
                 }
             }
-
             _userDal.Add(new User() { Id = _userDal.GetAll().Count + 1, FirstName = firstName, LastName = lastName, UserName = userName, Password = password });
+
         }
 
         public int Login()
@@ -64,6 +84,7 @@ namespace CinemaProject.Business.Concrete
             int activeUserId = 0;
             while (checkLogin)
             {
+                Stars.Show(45);
                 Console.WriteLine("\tKullanıcı Login Sayfası");
                 Console.Write("Kullanıcı Adı :");
                 string usernm = Console.ReadLine();
@@ -91,6 +112,17 @@ namespace CinemaProject.Business.Concrete
         public List<User> GetAll()
         {
             return _userDal.GetAll();
+        }
+
+        private void CheckUserNameSame(string userName)
+        {
+            foreach (var user in _userDal.GetAll())
+            {
+                if (user.UserName == userName)
+                {
+                    throw new UserNameException("Bu kullanıcı ismi kullanılmaktadır.");
+                }
+            }
         }
     }
 }

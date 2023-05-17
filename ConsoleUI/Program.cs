@@ -1,5 +1,4 @@
-﻿using System;
-using CinemaProject.Business.Abstract;
+﻿using CinemaProject.Business.Abstract;
 using CinemaProject.Business.Concrete;
 using CinemaProject.DataAccess.Concrete.InMemory;
 
@@ -9,7 +8,6 @@ namespace CinemaProject.ConsoleUI
     {
         static void Main(string[] args)
         {
-
             Start();
             Console.ReadKey();
         }
@@ -41,10 +39,9 @@ namespace CinemaProject.ConsoleUI
                 int selectedFilmNumber = filmService.GetAllByCategoryId(selectedCategoryNumber);
                 int selectedSeatNumber = seatService.GetAllByFilmId(selectedFilmNumber);
                 ticketService.Add(userService, filmService, seatService, activeUserId, selectedSeatNumber, selectedFilmNumber);
-               
 
-                int response = ticketService.GetAll();
-                if (response == 1)
+                int request = ticketService.GetAll();
+                if (request == 1)
                 {
                     continue;
                 }
