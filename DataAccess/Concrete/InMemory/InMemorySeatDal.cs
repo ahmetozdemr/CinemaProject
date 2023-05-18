@@ -19,7 +19,6 @@ namespace CinemaProject.DataAccess.Concrete.InMemory
             {
                 _seats.Add(new Seat() { Id = i, CheckFill = true });
             }
-
             _seatInRoom = new List<List<Seat>>()
             {
                  _seats,
@@ -36,20 +35,8 @@ namespace CinemaProject.DataAccess.Concrete.InMemory
                  _seats,
             };
         }
-
-        //public void Add(Seat seat)
-        //{
-        //    _seats.Add(seat);
-        //}
-
-        //public List<Seat> GetAll()
-        //{
-        //    return _seats;
-        //}
         public List<List<Seat>> GetAllInRoom()
         {
-            var result = _seatInRoom[1][1].Id;
-
             return _seatInRoom;
         }
     }

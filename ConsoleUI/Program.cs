@@ -1,4 +1,6 @@
-﻿using CinemaProject.Business.Abstract;
+﻿using Business.Concrete;
+using Business.InstanceFactory;
+using CinemaProject.Business.Abstract;
 using CinemaProject.Business.Concrete;
 using CinemaProject.DataAccess.Concrete.InMemory;
 
@@ -8,26 +10,14 @@ namespace CinemaProject.ConsoleUI
     {
         static void Main(string[] args)
         {
-            Start();
+            FirstPage();
             Console.ReadKey();
         }
-        private static void Start()
+        private static void FirstPage()
         {
-            IUserService userService = new UserManager(new InMemoryUserDal());
-
-            Console.WriteLine("1 Kayıt Ol");
-            Console.WriteLine("2 Giriş Yap");
-            int num = Int16.Parse(Console.ReadLine());
-            int activeUserId = default;
-            if (num == 1)
-            {
-                userService.Add();
-                activeUserId = userService.Login();
-            }
-            else
-            {
-                activeUserId = userService.Login();
-            }
+            IUserService userService;
+            int activeUserId;
+            UserLoginPage.Start(out userService,out activeUserId);
 
             IFilmService filmService = new FilmManager(new InMemoryFilmDal(), new InMemoryCategoryDal());
             ISeatService seatService = new SeatManager(new InMemorySeatDal());
@@ -50,7 +40,6 @@ namespace CinemaProject.ConsoleUI
                     break;
                 }
             }
-
         }
     }
 
