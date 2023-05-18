@@ -14,14 +14,16 @@ namespace Business.InstanceFactory
             get
             {
                 lock (Instancelock)
+                {
                     if (instance == null)
                     {
                         instance = new UserManager(InMemoryUserDalInstance.Instance);
                     }
 
                 return instance;
+                }
             }
         }
     }
 }
-}
+
