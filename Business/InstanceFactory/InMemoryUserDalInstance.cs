@@ -6,15 +6,20 @@ namespace Business.InstanceFactory
     {
         private InMemoryUserDalInstance() { }
         private static InMemoryUserDal instance = null;
+        private static readonly object Instancelock = new object();
         public static InMemoryUserDal Instance
         {
             get
             {
-                if (instance == null)
+                lock (Instancelock)
                 {
-                    instance = new InMemoryUserDal();
+                    if (instance == null)
+                    {
+                        instance = new InMemoryUserDal();
+                    }
+
+                    return instance;
                 }
-                return instance;
             }
         }
     }
