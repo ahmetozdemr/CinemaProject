@@ -8,7 +8,6 @@ namespace Business.InstanceFactory
         private UserManagerInstance() { }
         private static UserManager instance = null;
         private static readonly object Instancelock = new object();
-
         public static UserManager Instance
         {
             get
